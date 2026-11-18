@@ -243,19 +243,26 @@ def main():
             for k in SYN:
                 S[k][m] = Sy[k].values
         allF = {**F, **S}
-        # per season: eligible days, actual daily peaks, forecast daily peaks
-        seas = {}
+        # amendment 2: thresholds act on peaks divided by the mean actual load of
+        # the previous 365 days (removes load growth between training and test seasons)
+        dmean = H["demand"].groupby(level="date").mean()
+        abar = dmean.rolling(365, min_periods=200).mean().shift(1)
+        # per season: eligible days, actual daily peaks, forecast daily peaks (raw and normalized)
+        seas, raw = {}, {}
         for yr in years:
             if yr not in mae_iso:
                 continue
             days = pd.date_range(f"{yr}-06-01", f"{yr}-09-30", freq="D")
             el = eligible_days(days, ba, hol)
             act_pk, _ = daily_peaks(H["demand"], el)
-            per_f = {}
+            norm = lambda dct: {k: v / abar.get(k, np.nan) for k, v in dct.items()}
+            per_f, per_raw = {}, {}
             for f in FCS:
                 P, Ph = daily_peaks(allF[f], el)
-                per_f[f] = (P, Ph)
-            seas[yr] = (el, act_pk, per_f)
+                per_f[f] = (norm(P), Ph)
+                per_raw[f] = P
+            seas[yr] = (el, norm(act_pk), per_f)
+            raw[yr] = per_raw
         for yr in test_years:
             if yr not in seas:
                 continue
@@ -269,19 +276,34 @@ def main():
             m = season_mask(H.index, yr)
             ys = H["demand"][m]
             mean_load = float(ys.mean())
-            top5_act = set(pd.Series(act_pk).sort_values(ascending=False).head(5).index)
+            act_raw, _ = daily_peaks(H["demand"], el)
+            top5_act = set(pd.Series(act_raw).sort_values(ascending=False).head(5).index)
             train_years = [t for t in seas if t < yr]
             for f in FCS:
                 P, Ph = per_f[f]
+                Praw = raw[yr][f]
                 mae = float(np.nanmean(np.abs(allF[f][m] - ys)))
-                top5_f = set(pd.Series(P).dropna().sort_values(ascending=False).head(5).index)
+                top5_f = set(pd.Series(Praw).dropna().sort_values(ascending=False).head(5).index)
                 tail = len(top5_act & top5_f) / 5.0
-                for scale in ("forecast", "actual"):
+                for scale in ("forecast", "actual", "exact"):
                     for mult in MULTS:
                         B = mult * NCP[ba]
-                        train = [(seas[t][2][f][0], seas[t][2][f][1], seas[t][1], seas[t][0]) for t in train_years]
-                        q = calibrate_q(train, ba, B, scale)
-                        alerts = run_policy(P, Ph, act_pk, el, ba, q, scale)
+                        if scale == "exact":
+                            # amendment 2 (secondary): exactly B alerts on the highest forecast-peak
+                            # days of the season (ERCOT: B/4 per month); isolates ranking quality
+                            s = pd.Series(Praw).dropna()
+                            if ba == "ERCO":
+                                pick = []
+                                for mo in range(SEASON[0], SEASON[1] + 1):
+                                    sm_ = s[[k.month == mo for k in s.index]]
+                                    pick += list(sm_.sort_values(ascending=False).head(B // 4).index)
+                            else:
+                                pick = list(s.sort_values(ascending=False).head(B).index)
+                            alerts = {k: Ph[k] for k in pick}
+                        else:
+                            train = [(seas[t][2][f][0], seas[t][2][f][1], seas[t][1], seas[t][0]) for t in train_years]
+                            q = calibrate_q(train, ba, B, scale)
+                            alerts = run_policy(P, Ph, act_pk, el, ba, q, scale)
                         for w in WINDOWS:
                             half = (w - 1) // 2
                             hit = sum(1 for (dd, hh) in cps if dd in alerts and np.isfinite(alerts[dd])
@@ -364,7 +386,7 @@ def summary(P):
     for (scale, mult, w), g in P.groupby(["scale", "mult", "window"]):
         key = f"{scale}_m{mult}_w{w}"
         out[key] = {f: dict(capture=float(h.capture.mean()), alerts=float(h.alerts.mean()),
-                            mae_pct=float(h.mae_pct.mean()), tail=float(h.tail.mean()))
+                            mae_pct=float(h["mae_pct"].mean()), tail=float(h["tail"].mean()))
                     for f, h in g.groupby("forecaster")}
     return out
 

@@ -122,4 +122,28 @@ from result files via generated macros.
 
 ## Amendment log
 
-(none yet)
+### Amendment 1 (2026-11-18, pipeline check): code fix only
+
+A summary routine referred to a pandas method instead of the "tail" column;
+fixed. No analysis change.
+
+### Amendment 2 (2026-11-18, after the pipeline check, before the full run)
+
+What the check showed: on ERCOT 2018-2019 (the only data run), the policies
+calibrated to B = 20 alerts per season on the training seasons issued 24 to
+44 alerts in the test seasons, differently for each forecaster, because
+ERCOT load grew between the training and test seasons. Capture would then
+reflect alert counts more than forecast quality. The capture results of the
+check (ERCOT 2018-2019) were also seen; this amendment is motivated by the
+alert counts, not by them. Changes:
+
+- Thresholds (both policies) act on daily peaks divided by the mean actual
+  load of the previous 365 days, which removes load growth; the running
+  maximum uses the same normalized peaks. Window centres and the tail rank
+  score use raw forecasts (unchanged).
+- Added a secondary "exact-budget" policy: each forecaster alerts on exactly
+  the B days of the season with its highest forecast peaks (ERCOT: B/4 per
+  month). It uses the season's forecasts ex post and is not a usable rule; it
+  isolates how well a forecaster ranks days. H1-H4 are also reported for it,
+  as secondary results.
+- Alert counts per policy are reported next to every capture figure.
