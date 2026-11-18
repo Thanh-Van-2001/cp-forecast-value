@@ -1,0 +1,339 @@
+{
+ "files": [
+  {
+   "file": "EIA930_BALANCE_2015_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2016_Jan_Jun.csv",
+   "rows": 17468
+  },
+  {
+   "file": "EIA930_BALANCE_2016_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2017_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2017_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2018_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2018_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2019_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2019_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2020_Jan_Jun.csv",
+   "rows": 17468
+  },
+  {
+   "file": "EIA930_BALANCE_2020_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2021_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2021_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2022_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2022_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2023_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2023_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2024_Jan_Jun.csv",
+   "rows": 17468
+  },
+  {
+   "file": "EIA930_BALANCE_2024_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2025_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2025_Jul_Dec.csv",
+   "rows": 17668
+  },
+  {
+   "file": "EIA930_BALANCE_2026_Jan_Jun.csv",
+   "rows": 17372
+  },
+  {
+   "file": "EIA930_BALANCE_2026_Jul_Dec.csv",
+   "rows": 13444
+  }
+ ],
+ "duplicates_dropped": 0,
+ "by_ba_year": {
+  "ERCO_2015": {
+   "rows": 4417,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2016": {
+   "rows": 8784,
+   "demand_missing": 72,
+   "forecast_missing": 0
+  },
+  "ERCO_2017": {
+   "rows": 8760,
+   "demand_missing": 72,
+   "forecast_missing": 0
+  },
+  "ERCO_2018": {
+   "rows": 8760,
+   "demand_missing": 96,
+   "forecast_missing": 96
+  },
+  "ERCO_2019": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2020": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2021": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2022": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2023": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2024": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ERCO_2025": {
+   "rows": 8760,
+   "demand_missing": 48,
+   "forecast_missing": 48
+  },
+  "ERCO_2026": {
+   "rows": 7704,
+   "demand_missing": 24,
+   "forecast_missing": 0
+  },
+  "ISNE_2015": {
+   "rows": 4417,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2016": {
+   "rows": 8784,
+   "demand_missing": 3,
+   "forecast_missing": 0
+  },
+  "ISNE_2017": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2018": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2019": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2020": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2021": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2022": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2023": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2024": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "ISNE_2025": {
+   "rows": 8760,
+   "demand_missing": 2,
+   "forecast_missing": 0
+  },
+  "ISNE_2026": {
+   "rows": 7704,
+   "demand_missing": 27,
+   "forecast_missing": 0
+  },
+  "NYIS_2015": {
+   "rows": 4417,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2016": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2017": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2018": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2019": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2020": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2021": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2022": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2023": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2024": {
+   "rows": 8784,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2025": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "NYIS_2026": {
+   "rows": 7704,
+   "demand_missing": 24,
+   "forecast_missing": 0
+  },
+  "PJM_2015": {
+   "rows": 4417,
+   "demand_missing": 1,
+   "forecast_missing": 1
+  },
+  "PJM_2016": {
+   "rows": 8784,
+   "demand_missing": 26,
+   "forecast_missing": 26
+  },
+  "PJM_2017": {
+   "rows": 8760,
+   "demand_missing": 25,
+   "forecast_missing": 47
+  },
+  "PJM_2018": {
+   "rows": 8760,
+   "demand_missing": 1,
+   "forecast_missing": 47
+  },
+  "PJM_2019": {
+   "rows": 8760,
+   "demand_missing": 1,
+   "forecast_missing": 47
+  },
+  "PJM_2020": {
+   "rows": 8784,
+   "demand_missing": 46,
+   "forecast_missing": 47
+  },
+  "PJM_2021": {
+   "rows": 8760,
+   "demand_missing": 0,
+   "forecast_missing": 0
+  },
+  "PJM_2022": {
+   "rows": 8760,
+   "demand_missing": 23,
+   "forecast_missing": 23
+  },
+  "PJM_2023": {
+   "rows": 8760,
+   "demand_missing": 25,
+   "forecast_missing": 25
+  },
+  "PJM_2024": {
+   "rows": 8784,
+   "demand_missing": 47,
+   "forecast_missing": 48
+  },
+  "PJM_2025": {
+   "rows": 8760,
+   "demand_missing": 25,
+   "forecast_missing": 25
+  },
+  "PJM_2026": {
+   "rows": 7704,
+   "demand_missing": 71,
+   "forecast_missing": 48
+  }
+ }
+}
