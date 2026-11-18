@@ -29,6 +29,7 @@ REAL = ["F_ISO", "F_ISObc", "F_pers", "F_week", "F_ml", "F_mix"]
 SYN = ["S_bias", "S_under", "S_noise", "S_ar1", "S_shrink"]
 FCS = REAL + SYN
 RNG_SEED = 20261118
+SCREEN = {}
 
 
 def holidays(years):
@@ -53,6 +54,14 @@ def hourly_frame(d, ba):
     days = pd.date_range(g["date"].min(), g["date"].max(), freq="D")
     idx = pd.MultiIndex.from_product([days, range(1, 25)], names=["date", "hour"])
     piv = piv.reindex(idx)
+    # amendment 3: screen recording errors (EIA-930 contains spikes, zeros and an
+    # integer-overflow sentinel). A value is set missing if it is <= 0 or lies
+    # outside [0.5, 1.5] x the centred 168-hour rolling median of actual demand.
+    med = piv["demand"].where(piv["demand"] > 0).rolling(168, center=True, min_periods=24).median()
+    for c in ("demand", "forecast"):
+        bad = (piv[c] <= 0) | (piv[c] > 1.5 * med) | (piv[c] < 0.5 * med)
+        SCREEN[f"{ba}_{c}"] = int(bad.sum())
+        piv.loc[bad, c] = np.nan
     return piv
 
 
@@ -314,6 +323,7 @@ def main():
                                              n_train=len(train_years)))
     P = pd.DataFrame(rows)
     P.to_csv(os.path.join(OUT, "panel.csv"), index=False)
+    notes["screened_values"] = SCREEN
     res = {"notes": notes, "hypotheses": hypotheses(P), "summary": summary(P)}
     json.dump(res, open(os.path.join(OUT, "results.json"), "w"), indent=1, default=float)
     print(json.dumps(res["hypotheses"], indent=1, default=float)[:3000])

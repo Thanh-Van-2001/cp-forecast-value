@@ -147,3 +147,18 @@ alert counts, not by them. Changes:
   isolates how well a forecaster ranks days. H1-H4 are also reported for it,
   as secondary results.
 - Alert counts per policy are reported next to every capture figure.
+
+### Amendment 3 (2026-11-18, after the full run): screening of recording errors
+
+The full run showed an implausible error for the ML forecaster in PJM from
+2022 (MAE 27-79% of load). A scan of the raw data found recording errors in
+EIA-930: PJM demand spikes of 417,669 MW (2019), 262,651 MW (2020) and
+2,147,480,000 MW (2021, an integer-overflow sentinel), zero demand hours and
+zero forecasts in NYISO, and one spike in ISO-NE (2025). The plan had no
+screening rule; such values corrupt model training, lagged forecasts and,
+if they fall in summer, the identification of CP hours. Change: before any
+step, a demand or forecast value is set missing if it is <= 0 or lies
+outside [0.5, 1.5] times the centred 168-hour rolling median of actual
+demand (the season-exclusion rule then applies as planned). The full
+analysis is rerun; results of the unscreened run are kept in out/v1 and the
+differences are reported.
