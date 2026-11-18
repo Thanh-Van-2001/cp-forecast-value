@@ -30,15 +30,24 @@ SYN = ["S_bias", "S_under", "S_noise", "S_ar1", "S_shrink"]
 FCS = REAL + SYN
 RNG_SEED = 20261118
 SCREEN = {}
+SCREEN_LIST = []
 
 
 def holidays(years):
-    from pandas.tseries.holiday import USFederalHolidayCalendar
-    h = USFederalHolidayCalendar().holidays(start=f"{min(years)}-01-01", end=f"{max(years)}-12-31")
-    keep = [d for d in h if (d.month == 7 and d.day in (3, 4, 5)) or (d.month == 9 and d.weekday() == 0 and d.day <= 7)
-            or (d.month == 5 and d.weekday() == 0 and d.day >= 25) or (d.month == 1 and d.day <= 2)
-            or (d.month == 11 and d.weekday() == 3) or (d.month == 12 and d.day >= 24)]
-    return set(pd.DatetimeIndex(keep).normalize())
+    """NERC holidays (amendment 4 fix): New Year, Memorial Day, Independence
+    Day, Labor Day, Thanksgiving, Christmas; a holiday on Sunday moves to
+    Monday, a holiday on Saturday is not moved."""
+    out = []
+    for y in range(min(years), max(years) + 1):
+        for d in (pd.Timestamp(y, 1, 1), pd.Timestamp(y, 7, 4), pd.Timestamp(y, 12, 25)):
+            out.append(d + pd.Timedelta(days=1) if d.weekday() == 6 else d)
+        may = pd.date_range(f"{y}-05-25", f"{y}-05-31")
+        out.append(may[may.weekday == 0][-1])
+        sep = pd.date_range(f"{y}-09-01", f"{y}-09-07")
+        out.append(sep[sep.weekday == 0][0])
+        nov = pd.date_range(f"{y}-11-22", f"{y}-11-28")
+        out.append(nov[nov.weekday == 3][0])
+    return set(pd.DatetimeIndex(out).normalize())
 
 
 def load():
@@ -54,13 +63,19 @@ def hourly_frame(d, ba):
     days = pd.date_range(g["date"].min(), g["date"].max(), freq="D")
     idx = pd.MultiIndex.from_product([days, range(1, 25)], names=["date", "hour"])
     piv = piv.reindex(idx)
-    # amendment 3: screen recording errors (EIA-930 contains spikes, zeros and an
-    # integer-overflow sentinel). A value is set missing if it is <= 0 or lies
-    # outside [0.5, 1.5] x the centred 168-hour rolling median of actual demand.
+    # amendment 3, revised by amendment 4: screen only gross recording errors
+    # (EIA-930 spikes, zeros, an integer-overflow sentinel). A value is set
+    # missing if it is <= 0 or lies outside [0.3, 2.0] x the centred 168-hour
+    # rolling median of actual demand (the 1.5 bound of amendment 3 removed
+    # genuine heat-wave peaks). Every removed June-September value is logged.
     med = piv["demand"].where(piv["demand"] > 0).rolling(168, center=True, min_periods=24).median()
     for c in ("demand", "forecast"):
-        bad = (piv[c] <= 0) | (piv[c] > 1.5 * med) | (piv[c] < 0.5 * med)
+        bad = (piv[c] <= 0) | (piv[c] > 2.0 * med) | (piv[c] < 0.3 * med)
         SCREEN[f"{ba}_{c}"] = int(bad.sum())
+        dd = piv.index.get_level_values("date")
+        summer = bad & (dd.month >= 6) & (dd.month <= 9)
+        SCREEN_LIST.extend([f"{ba} {c} {k[0].date()} h{k[1]} {piv.loc[k, c]:.0f} (median {med.loc[k]:.0f})"
+                            for k in piv.index[summer.values]])
         piv.loc[bad, c] = np.nan
     return piv
 
@@ -188,10 +203,11 @@ def run_policy(P, Ph, act_pk, days, ba, q, scale):
         pk = period_key(day, ba)
         mprev = run.get(pk, -np.inf)
         p = P.get(day, np.nan)
-        if np.isfinite(p) and p >= max(q, A_RUN * mprev):
+        a = 0.0 if scale == "nomax" else A_RUN  # amendment 4: exploratory policy without running maximum
+        if np.isfinite(p) and p >= max(q, a * mprev):
             alerts[day] = Ph[day]
         # update the running maximum with information known at the end of the day
-        upd = p if scale == "forecast" else act_pk.get(day, np.nan)
+        upd = p if scale in ("forecast", "nomax") else act_pk.get(day, np.nan)
         if np.isfinite(upd):
             run[pk] = max(mprev, upd)
     return alerts
@@ -206,7 +222,7 @@ def daily_peaks(series, days):
 def calibrate_q(train_sets, ba, B, scale):
     """Choose the threshold level so that the policy issues on average B
     alerts per training season. train_sets: list of (P, Ph, act_pk, days)."""
-    pool = np.concatenate([[p for d, p in P.items() if d in set(days)] if scale == "forecast"
+    pool = np.concatenate([[p for d, p in P.items() if d in set(days)] if scale in ("forecast", "nomax")
                            else [a for d, a in A.items() if d in set(days)]
                            for P, Ph, A, days in train_sets])
     pool = pool[np.isfinite(pool)]
@@ -281,6 +297,14 @@ def main():
                 continue
             if not cps:
                 continue
+            # pre-specified rule (implemented in amendment 4): exclude the market-year if a CP day
+            # lacks any hour of actual demand or of the ISO forecast
+            incomplete = [str(dd.date()) for dd, _ in cps
+                          if H["demand"].loc[dd].isna().any() or F["F_ISO"].loc[dd].isna().any()]
+            if incomplete:
+                notes["excluded"].append(f"{ba}_{yr}_incomplete_CP_day_{','.join(incomplete)}")
+                continue
+            cp_days = {dd for dd, _ in cps}
             el, act_pk, per_f = seas[yr]
             m = season_mask(H.index, yr)
             ys = H["demand"][m]
@@ -291,10 +315,11 @@ def main():
             for f in FCS:
                 P, Ph = per_f[f]
                 Praw = raw[yr][f]
-                mae = float(np.nanmean(np.abs(allF[f][m] - ys)))
+                # synthetic forecasts share F_ISO's MAE by construction (amendment 4: exact ties)
+                mae = float(np.nanmean(np.abs(allF["F_ISO" if f in SYN else f][m] - ys)))
                 top5_f = set(pd.Series(Praw).dropna().sort_values(ascending=False).head(5).index)
                 tail = len(top5_act & top5_f) / 5.0
-                for scale in ("forecast", "actual", "exact"):
+                for scale in ("forecast", "actual", "exact", "nomax"):
                     for mult in MULTS:
                         B = mult * NCP[ba]
                         if scale == "exact":
@@ -317,13 +342,16 @@ def main():
                             half = (w - 1) // 2
                             hit = sum(1 for (dd, hh) in cps if dd in alerts and np.isfinite(alerts[dd])
                                       and abs(hh - alerts[dd]) <= half)
+                            hit_day = sum(1 for dd in cp_days if dd in alerts)
                             rows.append(dict(ba=ba, year=yr, forecaster=f, scale=scale, mult=mult, window=w,
                                              n_cp=len(cps), hits=hit, capture=hit / len(cps), alerts=len(alerts),
+                                             day_capture=hit_day / len(cp_days),
                                              budget=B, mae=mae, mae_pct=100 * mae / mean_load, tail=tail,
                                              n_train=len(train_years)))
     P = pd.DataFrame(rows)
     P.to_csv(os.path.join(OUT, "panel.csv"), index=False)
     notes["screened_values"] = SCREEN
+    notes["screened_summer_list"] = SCREEN_LIST
     res = {"notes": notes, "hypotheses": hypotheses(P), "summary": summary(P)}
     json.dump(res, open(os.path.join(OUT, "results.json"), "w"), indent=1, default=float)
     print(json.dumps(res["hypotheses"], indent=1, default=float)[:3000])

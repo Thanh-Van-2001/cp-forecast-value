@@ -162,3 +162,31 @@ outside [0.5, 1.5] times the centred 168-hour rolling median of actual
 demand (the season-exclusion rule then applies as planned). The full
 analysis is rerun; results of the unscreened run are kept in out/v1 and the
 differences are reported.
+
+### Amendment 4 (2026-11-18, after an internal referee review of the full results)
+
+Corrections:
+- The amendment-3 screen (bounds 0.5-1.5 x weekly median) also removed
+  genuine heat-wave peaks (139 ISO-NE values). Revised to remove only gross
+  recording errors: <= 0, or outside [0.3, 2.0] x the centred weekly median;
+  every removed June-September value is listed in results.json.
+- The pre-specified rule "exclude a season if any CP-candidate day lacks
+  data" had not been implemented; implemented as: a market-year is excluded
+  if any CP day lacks any hour of actual demand or of the ISO forecast.
+- Holidays now follow NERC rules (a Saturday holiday is not moved; the code
+  had moved it to Friday).
+- Synthetic forecasts are assigned exactly the ISO forecast's MAE (they are
+  matched by construction; numerical noise had broken the ties in tau).
+
+Exploratory additions (no new hypotheses):
+- Day-level capture (CP day alerted, regardless of the hour window), because
+  synthetic forecasts built from actual load always place the peak hour
+  correctly.
+- A forecast-scale policy without the running-maximum condition ("nomax"),
+  in which the calibrated threshold binds and alert counts are closer to B;
+  the review showed that the running maximum, not q, set the alert counts of
+  the primary policy, so capture comparisons there are confounded by alerts.
+- H1 on subsets excluding the weakest forecasters, a year-clustered
+  bootstrap, per-market H1 for ERCOT and PJM, out-of-sample (previous
+  season) tail-rank score and MAE, and exact binomial intervals for H4.
+The unscreened run (out/v1) and the amendment-3 run (out/v2) are kept.
