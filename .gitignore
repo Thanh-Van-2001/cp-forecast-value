@@ -2,3 +2,11 @@ data/
 __pycache__/
 *.part
 logs/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.blg
+paper/*.bbl
+paper/submission/*.aux
+paper/submission/*.log
+paper/submission/*.out

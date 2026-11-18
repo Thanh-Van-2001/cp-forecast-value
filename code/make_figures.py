@@ -22,10 +22,13 @@ for f, r in g.iterrows():
     syn = f.startswith("S_")
     ax.scatter(r.mae, 100 * r.cap, s=40, marker="D" if syn else "o", color="#D55E00" if syn else "#0072B2",
                edgecolor="white", linewidth=0.7, zorder=3)
-    dx, ha = (0.25, "left")
-    dy = {"S_bias": -3.0, "S_under": 0.0, "S_noise": 0.0, "S_ar1": 0.0, "S_shrink": 3.0}.get(f, 0.0)
-    ax.annotate(LAB[f], (r.mae, 100 * r.cap), xytext=(r.mae + dx, 100 * r.cap + dy), fontsize=7, ha=ha,
-                va="center", color="#333333")
+    if syn:
+        ylab = {"S_shrink": 89, "S_under": 85.5, "S_bias": 82, "S_ar1": 68, "S_noise": 63.5}[f]
+        ax.annotate(LAB[f], (r.mae, 100 * r.cap), xytext=(4.9, ylab), fontsize=7, ha="left", va="center",
+                    color="#333333", arrowprops=dict(arrowstyle="-", color="#bbbbbb", lw=0.6))
+    else:
+        ax.annotate(LAB[f], (r.mae, 100 * r.cap), xytext=(r.mae + 0.25, 100 * r.cap + {"F_ISObc": 0.4, "F_ISO": 0.6, "F_mix": -2.4}.get(f, 0)),
+                    fontsize=7, ha="left", va="center", color="#333333")
 ax.scatter([], [], marker="o", color="#0072B2", label="real forecasts")
 ax.scatter([], [], marker="D", color="#D55E00", label="synthetic, same MAE as ISO")
 ax.set_xlabel("Mean absolute error (% of mean summer load)")

@@ -1,0 +1,5 @@
+Day-ahead forecasts tested for catching 94 coincident peaks in four US markets
+Accuracy separates poor from good forecasts but says little among good ones
+At equal error, noisy forecasts miss a fifth more peaks than order-keeping ones
+Compressed forecasts fail when alert thresholds come from actual past peaks
+Operator forecasts beat a weather-free model and are a strong free baseline
