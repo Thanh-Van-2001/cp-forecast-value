@@ -1,0 +1,5 @@
+Accuracy separates poor from good peak forecasts but does not rank good ones
+At equal error and alerts, order-keeping errors catch nearly all coincident peaks
+Random errors of the same size miss about one coincident peak in five
+PJM's EIA-930 forecast has been stamped one hour early since February 2019
+Realigned, the operator forecast catches 39 instead of 31 of 40 PJM peak hours

@@ -1,0 +1,2791 @@
+{
+ "notes": {
+  "last_season": 2026,
+  "excluded": [
+   "ERCO_2016_missing",
+   "PJM_2020_incomplete_CP_day_2020-07-27"
+  ],
+  "screened_values": {
+   "ERCO_demand": 0,
+   "ERCO_forecast": 0,
+   "PJM_demand": 9,
+   "PJM_forecast": 156,
+   "NYIS_demand": 15,
+   "NYIS_forecast": 253,
+   "ISNE_demand": 0,
+   "ISNE_forecast": 0
+  },
+  "screened_summer_list": [
+   "PJM demand 2020-07-13 h19 224345 (median 105534)",
+   "PJM demand 2020-07-24 h12 262651 (median 112515)",
+   "PJM demand 2020-07-27 h18 245799 (median 114548)",
+   "PJM demand 2020-09-03 h17 250825 (median 92563)",
+   "PJM forecast 2015-07-01 h4 26029 (median 87532)",
+   "PJM forecast 2015-07-01 h5 26220 (median 87694)",
+   "PJM forecast 2015-07-03 h2 25393 (median 87521)",
+   "PJM forecast 2015-07-03 h3 24430 (median 87526)",
+   "PJM forecast 2015-07-03 h4 24035 (median 87532)",
+   "PJM forecast 2015-07-03 h5 24249 (median 87694)",
+   "PJM forecast 2015-07-03 h6 25370 (median 87856)",
+   "PJM forecast 2015-07-04 h2 25872 (median 89387)",
+   "PJM forecast 2015-07-04 h3 24862 (median 89474)",
+   "PJM forecast 2015-07-04 h4 24265 (median 89560)",
+   "PJM forecast 2015-07-04 h5 23971 (median 89564)",
+   "PJM forecast 2015-07-04 h6 23911 (median 89568)",
+   "PJM forecast 2015-07-04 h7 24071 (median 89926)",
+   "PJM forecast 2015-07-04 h8 25369 (median 90283)",
+   "PJM forecast 2015-07-05 h1 25451 (median 91967)",
+   "PJM forecast 2015-07-05 h2 24060 (median 91967)",
+   "PJM forecast 2015-07-05 h3 23071 (median 91967)",
+   "PJM forecast 2015-07-05 h4 22511 (median 91967)",
+   "PJM forecast 2015-07-05 h5 22234 (median 91967)",
+   "PJM forecast 2015-07-05 h6 22039 (median 91967)",
+   "PJM forecast 2015-07-05 h7 21905 (median 91967)",
+   "PJM forecast 2015-07-05 h8 23130 (median 91967)",
+   "PJM forecast 2015-07-05 h9 25301 (median 91967)",
+   "PJM forecast 2015-07-06 h2 26324 (median 92588)",
+   "PJM forecast 2015-07-06 h3 25493 (median 92588)",
+   "PJM forecast 2015-07-06 h4 24948 (median 92588)",
+   "PJM forecast 2015-07-06 h5 25190 (median 92588)",
+   "PJM forecast 2015-07-06 h6 26235 (median 92588)",
+   "PJM forecast 2015-07-07 h3 28082 (median 94962)",
+   "PJM forecast 2015-07-07 h4 27374 (median 94962)",
+   "PJM forecast 2015-07-07 h5 27454 (median 94962)",
+   "PJM forecast 2015-07-08 h4 29293 (median 98414)",
+   "PJM forecast 2015-07-08 h5 29292 (median 98466)",
+   "PJM forecast 2015-07-09 h3 28883 (median 100212)",
+   "PJM forecast 2015-07-09 h4 28102 (median 100252)",
+   "PJM forecast 2015-07-09 h5 28136 (median 100252)",
+   "PJM forecast 2015-07-09 h6 29240 (median 100252)",
+   "PJM forecast 2015-07-10 h2 29654 (median 101141)",
+   "PJM forecast 2015-07-10 h3 28116 (median 101141)",
+   "PJM forecast 2015-07-10 h4 27312 (median 101141)",
+   "PJM forecast 2015-07-10 h5 27275 (median 101141)",
+   "PJM forecast 2015-07-10 h6 28183 (median 101141)",
+   "PJM forecast 2015-07-10 h7 29968 (median 101141)",
+   "PJM forecast 2015-07-11 h2 28439 (median 101141)",
+   "PJM forecast 2015-07-11 h3 26999 (median 101141)",
+   "PJM forecast 2015-07-11 h4 26091 (median 101141)",
+   "PJM forecast 2015-07-11 h5 25679 (median 101141)",
+   "PJM forecast 2015-07-11 h6 25626 (median 101141)",
+   "PJM forecast 2015-07-11 h7 25871 (median 101141)",
+   "PJM forecast 2015-07-11 h8 27377 (median 101141)",
+   "PJM forecast 2015-07-11 h9 29716 (median 101141)",
+   "PJM forecast 2015-07-12 h1 29468 (median 100920)",
+   "PJM forecast 2015-07-12 h2 27571 (median 100920)",
+   "PJM forecast 2015-07-12 h3 26215 (median 100920)",
+   "PJM forecast 2015-07-12 h4 25261 (median 100920)",
+   "PJM forecast 2015-07-12 h5 24807 (median 100920)",
+   "PJM forecast 2015-07-12 h6 24537 (median 100920)",
+   "PJM forecast 2015-07-12 h7 24597 (median 100920)",
+   "PJM forecast 2015-07-12 h8 26042 (median 100920)",
+   "PJM forecast 2015-07-12 h9 28534 (median 100920)",
+   "PJM forecast 2015-07-13 h2 28358 (median 99896)",
+   "PJM forecast 2015-07-13 h3 27277 (median 99896)",
+   "PJM forecast 2015-07-13 h4 26586 (median 99896)",
+   "PJM forecast 2015-07-13 h5 26720 (median 99896)",
+   "PJM forecast 2015-07-13 h6 27698 (median 99896)",
+   "PJM forecast 2015-07-13 h7 29694 (median 99896)",
+   "PJM forecast 2015-07-14 h2 29120 (median 99046)",
+   "PJM forecast 2015-07-14 h3 27968 (median 99046)",
+   "PJM forecast 2015-07-14 h4 27263 (median 99046)",
+   "PJM forecast 2015-07-14 h5 27331 (median 99046)",
+   "PJM forecast 2015-07-14 h6 28548 (median 99046)",
+   "PJM forecast 2015-07-15 h3 29154 (median 100410)",
+   "PJM forecast 2015-07-15 h4 28374 (median 100410)",
+   "PJM forecast 2015-07-15 h5 28434 (median 100410)",
+   "PJM forecast 2015-07-15 h6 29628 (median 100410)",
+   "PJM forecast 2015-07-16 h1 28891 (median 103181)",
+   "PJM forecast 2015-07-16 h2 27160 (median 103347)",
+   "PJM forecast 2015-07-16 h3 25987 (median 103428)",
+   "PJM forecast 2015-07-16 h4 25418 (median 103428)",
+   "PJM forecast 2015-07-16 h5 25530 (median 103428)",
+   "PJM forecast 2015-07-16 h6 26680 (median 103428)",
+   "PJM forecast 2015-07-16 h7 28612 (median 103428)",
+   "PJM forecast 2015-07-16 h8 30771 (median 103428)",
+   "PJM forecast 2015-07-16 h24 30968 (median 105148)",
+   "PJM forecast 2015-07-17 h1 28070 (median 105148)",
+   "PJM forecast 2015-07-17 h2 26363 (median 105148)",
+   "PJM forecast 2015-07-17 h3 25211 (median 105148)",
+   "PJM forecast 2015-07-17 h4 24692 (median 105148)",
+   "PJM forecast 2015-07-17 h5 24770 (median 105148)",
+   "PJM forecast 2015-07-17 h6 25770 (median 105148)",
+   "PJM forecast 2015-07-17 h7 27696 (median 105148)",
+   "PJM forecast 2015-07-17 h8 30062 (median 105148)",
+   "PJM forecast 2015-07-18 h1 30293 (median 105742)",
+   "PJM forecast 2015-07-18 h2 28538 (median 105742)",
+   "PJM forecast 2015-07-18 h3 27217 (median 105742)",
+   "PJM forecast 2015-07-18 h4 26509 (median 105742)",
+   "PJM forecast 2015-07-18 h5 26197 (median 105742)",
+   "PJM forecast 2015-07-18 h6 26221 (median 105742)",
+   "PJM forecast 2015-07-18 h7 26372 (median 105742)",
+   "PJM forecast 2015-07-18 h8 28092 (median 105742)",
+   "PJM forecast 2015-07-18 h9 30865 (median 105742)",
+   "PJM forecast 2015-07-19 h2 30992 (median 105984)",
+   "PJM forecast 2015-07-19 h3 29466 (median 105984)",
+   "PJM forecast 2015-07-19 h4 28412 (median 105984)",
+   "PJM forecast 2015-07-19 h5 27942 (median 105984)",
+   "PJM forecast 2015-07-19 h6 27789 (median 105984)",
+   "PJM forecast 2015-07-19 h7 27814 (median 105984)",
+   "PJM forecast 2015-07-19 h8 29665 (median 105984)",
+   "PJM forecast 2015-07-22 h1 32377 (median 108866)",
+   "PJM forecast 2015-07-22 h2 30288 (median 108866)",
+   "PJM forecast 2015-07-22 h3 28814 (median 108866)",
+   "PJM forecast 2015-07-22 h4 27946 (median 108866)",
+   "PJM forecast 2015-07-22 h5 27947 (median 108866)",
+   "PJM forecast 2015-07-22 h6 28914 (median 108866)",
+   "PJM forecast 2015-07-22 h7 30748 (median 108866)",
+   "PJM forecast 2015-07-23 h1 29696 (median 107967)",
+   "PJM forecast 2015-07-23 h2 27855 (median 107967)",
+   "PJM forecast 2015-07-23 h3 26667 (median 107967)",
+   "PJM forecast 2015-07-23 h4 26020 (median 107967)",
+   "PJM forecast 2015-07-23 h5 26100 (median 107967)",
+   "PJM forecast 2015-07-23 h6 27176 (median 107967)",
+   "PJM forecast 2015-07-23 h7 29074 (median 107967)",
+   "PJM forecast 2015-07-23 h8 31346 (median 107967)",
+   "PJM forecast 2015-07-24 h1 29195 (median 106376)",
+   "PJM forecast 2015-07-24 h2 27361 (median 106376)",
+   "PJM forecast 2015-07-24 h3 26099 (median 106376)",
+   "PJM forecast 2015-07-24 h4 25510 (median 106376)",
+   "PJM forecast 2015-07-24 h5 25539 (median 106376)",
+   "PJM forecast 2015-07-24 h6 26496 (median 106376)",
+   "PJM forecast 2015-07-24 h7 28304 (median 106376)",
+   "PJM forecast 2015-07-24 h8 30682 (median 106376)",
+   "PJM forecast 2015-07-25 h1 29652 (median 106177)",
+   "PJM forecast 2015-07-25 h2 27760 (median 106177)",
+   "PJM forecast 2015-07-25 h3 26404 (median 106177)",
+   "PJM forecast 2015-07-25 h4 25574 (median 106177)",
+   "PJM forecast 2015-07-25 h5 25215 (median 106177)",
+   "PJM forecast 2015-07-25 h6 25234 (median 106177)",
+   "PJM forecast 2015-07-25 h7 25535 (median 106177)",
+   "PJM forecast 2015-07-25 h8 27348 (median 106177)",
+   "PJM forecast 2015-07-25 h9 30130 (median 106177)",
+   "PJM forecast 2015-07-26 h1 30505 (median 107611)",
+   "PJM forecast 2015-07-26 h2 28595 (median 107611)",
+   "PJM forecast 2015-07-26 h3 27183 (median 107611)",
+   "PJM forecast 2015-07-26 h4 26255 (median 107611)",
+   "PJM forecast 2015-07-26 h5 25768 (median 107611)",
+   "PJM forecast 2015-07-26 h6 25585 (median 107611)",
+   "PJM forecast 2015-07-26 h7 25590 (median 107611)",
+   "PJM forecast 2015-07-26 h8 27051 (median 107611)",
+   "PJM forecast 2015-07-26 h9 29637 (median 107611)",
+   "PJM forecast 2015-07-28 h1 32509 (median 111908)",
+   "PJM forecast 2015-07-28 h2 30482 (median 111908)",
+   "PJM forecast 2015-07-28 h3 29306 (median 111908)",
+   "PJM forecast 2015-07-28 h4 28488 (median 111908)",
+   "PJM forecast 2015-07-28 h5 28532 (median 111908)",
+   "PJM forecast 2015-07-28 h6 29806 (median 111908)",
+   "PJM forecast 2015-07-28 h7 32037 (median 111908)",
+   "NYIS demand 2017-07-10 h19 0 (median 21392)",
+   "NYIS forecast 2015-07-01 h2 0 (median 18535)",
+   "NYIS forecast 2015-07-01 h3 0 (median 18514)",
+   "NYIS forecast 2015-07-01 h4 0 (median 18493)",
+   "NYIS forecast 2015-07-01 h5 0 (median 18382)",
+   "NYIS forecast 2015-07-01 h6 0 (median 18271)",
+   "NYIS forecast 2015-07-01 h7 0 (median 18241)",
+   "NYIS forecast 2015-07-01 h8 0 (median 18211)",
+   "NYIS forecast 2015-07-01 h9 0 (median 18202)",
+   "NYIS forecast 2015-07-01 h10 0 (median 18192)",
+   "NYIS forecast 2015-07-01 h11 0 (median 18180)",
+   "NYIS forecast 2015-07-01 h12 0 (median 18168)",
+   "NYIS forecast 2015-07-01 h13 0 (median 18140)",
+   "NYIS forecast 2015-07-01 h14 0 (median 18112)",
+   "NYIS forecast 2015-07-01 h15 0 (median 18100)",
+   "NYIS forecast 2015-07-01 h16 0 (median 18087)",
+   "NYIS forecast 2015-07-01 h17 0 (median 18072)",
+   "NYIS forecast 2015-07-01 h18 0 (median 18058)",
+   "NYIS forecast 2015-07-01 h19 0 (median 18016)",
+   "NYIS forecast 2015-07-01 h20 0 (median 17974)",
+   "NYIS forecast 2015-07-01 h21 0 (median 17968)",
+   "NYIS forecast 2015-07-01 h22 0 (median 17963)",
+   "NYIS forecast 2015-07-01 h23 0 (median 17945)",
+   "NYIS forecast 2015-07-01 h24 0 (median 17927)",
+   "NYIS forecast 2019-08-20 h2 0 (median 22496)",
+   "NYIS forecast 2019-08-20 h3 0 (median 22458)",
+   "NYIS forecast 2019-08-20 h4 0 (median 22244)",
+   "NYIS forecast 2019-08-20 h5 0 (median 22034)",
+   "NYIS forecast 2019-08-20 h6 0 (median 21952)",
+   "NYIS forecast 2019-08-20 h7 0 (median 21838)",
+   "NYIS forecast 2019-08-20 h8 0 (median 21776)",
+   "NYIS forecast 2019-08-20 h9 0 (median 21739)",
+   "NYIS forecast 2019-08-20 h10 0 (median 21716)",
+   "NYIS forecast 2019-08-20 h11 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h12 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h13 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h14 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h15 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h16 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h17 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h18 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h19 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h20 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h21 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h22 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h23 0 (median 21648)",
+   "NYIS forecast 2019-08-20 h24 0 (median 21648)",
+   "NYIS forecast 2024-06-28 h2 0 (median 19061)",
+   "NYIS forecast 2024-06-28 h3 0 (median 18968)",
+   "NYIS forecast 2024-06-28 h4 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h5 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h6 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h7 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h8 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h9 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h10 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h11 0 (median 18946)",
+   "NYIS forecast 2024-06-28 h12 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h13 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h14 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h15 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h16 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h17 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h18 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h19 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h20 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h21 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h22 0 (median 18884)",
+   "NYIS forecast 2024-06-28 h23 0 (median 18844)",
+   "NYIS forecast 2024-06-28 h24 0 (median 18800)",
+   "NYIS forecast 2025-09-09 h2 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h3 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h4 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h5 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h6 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h7 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h8 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h9 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h10 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h11 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h12 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h13 0 (median 15494)",
+   "NYIS forecast 2025-09-09 h14 0 (median 15433)",
+   "NYIS forecast 2025-09-09 h15 0 (median 15354)",
+   "NYIS forecast 2025-09-09 h16 0 (median 15326)",
+   "NYIS forecast 2025-09-09 h17 0 (median 15310)",
+   "NYIS forecast 2025-09-09 h18 0 (median 15310)",
+   "NYIS forecast 2025-09-09 h19 0 (median 15310)",
+   "NYIS forecast 2025-09-09 h20 0 (median 15304)",
+   "NYIS forecast 2025-09-09 h21 0 (median 15303)",
+   "NYIS forecast 2025-09-09 h22 0 (median 15302)",
+   "NYIS forecast 2025-09-09 h23 0 (median 15290)",
+   "NYIS forecast 2025-09-09 h24 0 (median 15276)"
+  ]
+ },
+ "hypotheses": {
+  "H1": {
+   "mean_tau": -0.4603582400339352,
+   "n_cells": 34,
+   "n_undefined": 1,
+   "ci": [
+    -0.5249605594220381,
+    -0.39178679405263633
+   ],
+   "p_one_sided": 9.999000099990002e-05,
+   "supported": true
+  },
+  "H2": {
+   "p": {
+    "S_bias": 0.8306379261201711,
+    "S_under": 0.7269394941114674,
+    "S_noise": 0.9977499316268128
+   },
+   "p_holm": {
+    "S_under": 1.0,
+    "S_bias": 1.0,
+    "S_noise": 1.0
+   },
+   "mean_capture": {
+    "S_bias": 0.8142857142857143,
+    "S_under": 0.8214285714285714,
+    "S_noise": 0.6771428571428572,
+    "S_ar1": 0.6914285714285714,
+    "S_shrink": 0.8357142857142859
+   },
+   "supported": false
+  },
+  "H3": {
+   "mean_tau_tail": 0.5044200181389561,
+   "mean_tau_mae": -0.4603582400339352,
+   "n": 34,
+   "p_one_sided": 0.05599440055994401,
+   "supported": false
+  },
+  "H4": {
+   "per_market": {
+    "ERCO": {
+     "iso_hits": 17,
+     "ml_hits": 6,
+     "n_cp": 36
+    },
+    "ISNE": {
+     "iso_hits": 9,
+     "ml_hits": 4,
+     "n_cp": 9
+    },
+    "NYIS": {
+     "iso_hits": 9,
+     "ml_hits": 3,
+     "n_cp": 9
+    },
+    "PJM": {
+     "iso_hits": 27,
+     "ml_hits": 20,
+     "n_cp": 40
+    }
+   },
+   "at_least_all": true,
+   "more_in": 4,
+   "supported": true
+  }
+ },
+ "summary": {
+  "actual_m3_w1": {
+   "F_ISO": {
+    "capture": 0.5671428571428572,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.4957142857142858,
+    "alerts": 7.742857142857143,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.38428571428571434,
+    "alerts": 6.0,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.060000000000000005,
+    "alerts": 3.9714285714285715,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.3114285714285714,
+    "alerts": 7.4,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.10857142857142857,
+    "alerts": 6.228571428571429,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.3585714285714286,
+    "alerts": 7.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7542857142857142,
+    "alerts": 7.857142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.36714285714285716,
+    "alerts": 8.257142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.5071428571428571,
+    "alerts": 6.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7228571428571429,
+    "alerts": 6.457142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m3_w3": {
+   "F_ISO": {
+    "capture": 0.7657142857142857,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7571428571428571,
+    "alerts": 7.742857142857143,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5271428571428571,
+    "alerts": 6.0,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.10857142857142857,
+    "alerts": 3.9714285714285715,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.47,
+    "alerts": 7.4,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.15,
+    "alerts": 6.228571428571429,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.5885714285714286,
+    "alerts": 7.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7542857142857142,
+    "alerts": 7.857142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.6971428571428571,
+    "alerts": 8.257142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.5357142857142857,
+    "alerts": 6.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7228571428571429,
+    "alerts": 6.457142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m3_w5": {
+   "F_ISO": {
+    "capture": 0.7714285714285715,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7628571428571428,
+    "alerts": 7.742857142857143,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5328571428571428,
+    "alerts": 6.0,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.14857142857142855,
+    "alerts": 3.9714285714285715,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.5057142857142857,
+    "alerts": 7.4,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.15,
+    "alerts": 6.228571428571429,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.6699999999999999,
+    "alerts": 7.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7542857142857142,
+    "alerts": 7.857142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7914285714285714,
+    "alerts": 8.257142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.5357142857142857,
+    "alerts": 6.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7228571428571429,
+    "alerts": 6.457142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m5_w1": {
+   "F_ISO": {
+    "capture": 0.5957142857142858,
+    "alerts": 10.228571428571428,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.5528571428571429,
+    "alerts": 9.742857142857142,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.41285714285714287,
+    "alerts": 8.057142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.06714285714285713,
+    "alerts": 7.085714285714285,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.41857142857142854,
+    "alerts": 9.914285714285715,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.10857142857142857,
+    "alerts": 8.485714285714286,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.40142857142857147,
+    "alerts": 9.685714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8542857142857142,
+    "alerts": 11.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.37428571428571433,
+    "alerts": 11.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.5428571428571428,
+    "alerts": 9.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7657142857142857,
+    "alerts": 9.257142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m5_w3": {
+   "F_ISO": {
+    "capture": 0.8014285714285714,
+    "alerts": 10.228571428571428,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8214285714285714,
+    "alerts": 9.742857142857142,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5557142857142857,
+    "alerts": 8.057142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.12285714285714285,
+    "alerts": 7.085714285714285,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.5771428571428571,
+    "alerts": 9.914285714285715,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.17142857142857143,
+    "alerts": 8.485714285714286,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.6385714285714286,
+    "alerts": 9.685714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8542857142857142,
+    "alerts": 11.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7328571428571428,
+    "alerts": 11.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.5714285714285714,
+    "alerts": 9.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7657142857142857,
+    "alerts": 9.257142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m5_w5": {
+   "F_ISO": {
+    "capture": 0.8071428571428572,
+    "alerts": 10.228571428571428,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8271428571428571,
+    "alerts": 9.742857142857142,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5685714285714285,
+    "alerts": 8.057142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.17714285714285713,
+    "alerts": 7.085714285714285,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6128571428571429,
+    "alerts": 9.914285714285715,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.17142857142857143,
+    "alerts": 8.485714285714286,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.72,
+    "alerts": 9.685714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8542857142857142,
+    "alerts": 11.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8342857142857143,
+    "alerts": 11.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.5714285714285714,
+    "alerts": 9.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7657142857142857,
+    "alerts": 9.257142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m8_w1": {
+   "F_ISO": {
+    "capture": 0.6242857142857143,
+    "alerts": 14.657142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.5885714285714286,
+    "alerts": 14.742857142857142,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.4557142857142857,
+    "alerts": 14.085714285714285,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.08142857142857142,
+    "alerts": 12.714285714285714,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.45428571428571424,
+    "alerts": 13.628571428571428,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.13,
+    "alerts": 12.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.4085714285714286,
+    "alerts": 13.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.89,
+    "alerts": 14.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.39571428571428574,
+    "alerts": 14.82857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.6071428571428571,
+    "alerts": 15.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8228571428571428,
+    "alerts": 14.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m8_w3": {
+   "F_ISO": {
+    "capture": 0.8371428571428571,
+    "alerts": 14.657142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8714285714285714,
+    "alerts": 14.742857142857142,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.6271428571428571,
+    "alerts": 14.085714285714285,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.16571428571428573,
+    "alerts": 12.714285714285714,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6557142857142857,
+    "alerts": 13.628571428571428,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.2,
+    "alerts": 12.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7314285714285714,
+    "alerts": 13.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.89,
+    "alerts": 14.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7685714285714286,
+    "alerts": 14.82857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.65,
+    "alerts": 15.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8228571428571428,
+    "alerts": 14.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "actual_m8_w5": {
+   "F_ISO": {
+    "capture": 0.8571428571428571,
+    "alerts": 14.657142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8914285714285715,
+    "alerts": 14.742857142857142,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.64,
+    "alerts": 14.085714285714285,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.22714285714285712,
+    "alerts": 12.714285714285714,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6914285714285714,
+    "alerts": 13.628571428571428,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.20714285714285716,
+    "alerts": 12.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.8128571428571428,
+    "alerts": 13.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.89,
+    "alerts": 14.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8842857142857142,
+    "alerts": 14.82857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.6571428571428571,
+    "alerts": 15.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8228571428571428,
+    "alerts": 14.571428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m3_w1": {
+   "F_ISO": {
+    "capture": 0.6785714285714286,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.5928571428571429,
+    "alerts": 8.057142857142857,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.4914285714285714,
+    "alerts": 8.057142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.11571428571428571,
+    "alerts": 8.057142857142857,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.32285714285714284,
+    "alerts": 8.057142857142857,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.08571428571428572,
+    "alerts": 8.057142857142857,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.4442857142857143,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.4,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.85,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m3_w3": {
+   "F_ISO": {
+    "capture": 0.8871428571428571,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.9157142857142856,
+    "alerts": 8.057142857142857,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7128571428571429,
+    "alerts": 8.057142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.29000000000000004,
+    "alerts": 8.057142857142857,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.4228571428571429,
+    "alerts": 8.057142857142857,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.1057142857142857,
+    "alerts": 8.057142857142857,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7828571428571428,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7857142857142857,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8942857142857144,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m3_w5": {
+   "F_ISO": {
+    "capture": 0.9071428571428571,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.9285714285714286,
+    "alerts": 8.057142857142857,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7371428571428572,
+    "alerts": 8.057142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.40285714285714286,
+    "alerts": 8.057142857142857,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.43,
+    "alerts": 8.057142857142857,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.11857142857142858,
+    "alerts": 8.057142857142857,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.8571428571428571,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.88,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9014285714285715,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 8.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m5_w1": {
+   "F_ISO": {
+    "capture": 0.6928571428571428,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.6071428571428571,
+    "alerts": 13.428571428571429,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5971428571428571,
+    "alerts": 13.428571428571429,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.20428571428571426,
+    "alerts": 13.428571428571429,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.45,
+    "alerts": 13.428571428571429,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.15142857142857144,
+    "alerts": 13.428571428571429,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.4585714285714286,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.4142857142857143,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9071428571428571,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m5_w3": {
+   "F_ISO": {
+    "capture": 0.9299999999999999,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.9299999999999999,
+    "alerts": 13.428571428571429,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.8542857142857142,
+    "alerts": 13.428571428571429,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.4271428571428571,
+    "alerts": 13.428571428571429,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6185714285714285,
+    "alerts": 13.428571428571429,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.1957142857142857,
+    "alerts": 13.428571428571429,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.8185714285714285,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8214285714285714,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9799999999999999,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m5_w5": {
+   "F_ISO": {
+    "capture": 0.95,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.95,
+    "alerts": 13.428571428571429,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.8785714285714286,
+    "alerts": 13.428571428571429,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.5928571428571429,
+    "alerts": 13.428571428571429,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6314285714285713,
+    "alerts": 13.428571428571429,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.20857142857142857,
+    "alerts": 13.428571428571429,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.9071428571428571,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.9157142857142856,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9871428571428571,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 13.428571428571429,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m8_w1": {
+   "F_ISO": {
+    "capture": 0.7357142857142858,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.6428571428571429,
+    "alerts": 21.485714285714284,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.6542857142857142,
+    "alerts": 21.485714285714284,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.24714285714285716,
+    "alerts": 21.485714285714284,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.5114285714285713,
+    "alerts": 21.485714285714284,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.1942857142857143,
+    "alerts": 21.485714285714284,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.48000000000000004,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.4357142857142857,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9071428571428571,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m8_w3": {
+   "F_ISO": {
+    "capture": 0.9799999999999999,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.9657142857142856,
+    "alerts": 21.485714285714284,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.9185714285714285,
+    "alerts": 21.485714285714284,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.4885714285714286,
+    "alerts": 21.485714285714284,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.7528571428571429,
+    "alerts": 21.485714285714284,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.3028571428571428,
+    "alerts": 21.485714285714284,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.8471428571428571,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8642857142857143,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9799999999999999,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "exact_m8_w5": {
+   "F_ISO": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.9857142857142858,
+    "alerts": 21.485714285714284,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.95,
+    "alerts": 21.485714285714284,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.66,
+    "alerts": 21.485714285714284,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.7942857142857143,
+    "alerts": 21.485714285714284,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.3228571428571429,
+    "alerts": 21.485714285714284,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.9428571428571428,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.9728571428571428,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.9871428571428571,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 1.0,
+    "alerts": 21.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m3_w1": {
+   "F_ISO": {
+    "capture": 0.5328571428571429,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.48428571428571426,
+    "alerts": 7.885714285714286,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.45142857142857146,
+    "alerts": 7.742857142857143,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.14428571428571427,
+    "alerts": 7.2,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.3114285714285714,
+    "alerts": 7.6,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.10857142857142857,
+    "alerts": 8.342857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.36428571428571427,
+    "alerts": 7.542857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7142857142857143,
+    "alerts": 7.371428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.36142857142857143,
+    "alerts": 7.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.7042857142857143,
+    "alerts": 7.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7428571428571429,
+    "alerts": 7.314285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m3_w3": {
+   "F_ISO": {
+    "capture": 0.7185714285714285,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7342857142857143,
+    "alerts": 7.885714285714286,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.6528571428571428,
+    "alerts": 7.742857142857143,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.30714285714285716,
+    "alerts": 7.2,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.47,
+    "alerts": 7.6,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.16285714285714284,
+    "alerts": 8.342857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.5842857142857143,
+    "alerts": 7.542857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7142857142857143,
+    "alerts": 7.371428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.6485714285714286,
+    "alerts": 7.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.75,
+    "alerts": 7.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7428571428571429,
+    "alerts": 7.314285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m3_w5": {
+   "F_ISO": {
+    "capture": 0.7242857142857143,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7400000000000001,
+    "alerts": 7.885714285714286,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.6642857142857143,
+    "alerts": 7.742857142857143,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.41000000000000003,
+    "alerts": 7.2,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.5057142857142857,
+    "alerts": 7.6,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.16857142857142857,
+    "alerts": 8.342857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.6657142857142857,
+    "alerts": 7.542857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7142857142857143,
+    "alerts": 7.371428571428571,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7185714285714285,
+    "alerts": 7.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.75,
+    "alerts": 7.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7428571428571429,
+    "alerts": 7.314285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m5_w1": {
+   "F_ISO": {
+    "capture": 0.5971428571428571,
+    "alerts": 9.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.5342857142857143,
+    "alerts": 9.8,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5014285714285714,
+    "alerts": 10.485714285714286,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.18714285714285714,
+    "alerts": 10.514285714285714,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.41857142857142854,
+    "alerts": 10.085714285714285,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.11571428571428571,
+    "alerts": 10.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.40714285714285714,
+    "alerts": 9.714285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8142857142857143,
+    "alerts": 10.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.3685714285714286,
+    "alerts": 9.771428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.7828571428571428,
+    "alerts": 11.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8214285714285714,
+    "alerts": 10.028571428571428,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m5_w3": {
+   "F_ISO": {
+    "capture": 0.7899999999999999,
+    "alerts": 9.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7914285714285715,
+    "alerts": 9.8,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7599999999999999,
+    "alerts": 10.485714285714286,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.35714285714285715,
+    "alerts": 10.514285714285714,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.5771428571428571,
+    "alerts": 10.085714285714285,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.18428571428571427,
+    "alerts": 10.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.6914285714285714,
+    "alerts": 9.714285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8142857142857143,
+    "alerts": 10.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.6771428571428572,
+    "alerts": 9.771428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8357142857142857,
+    "alerts": 11.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8214285714285714,
+    "alerts": 10.028571428571428,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m5_w5": {
+   "F_ISO": {
+    "capture": 0.7957142857142857,
+    "alerts": 9.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7971428571428572,
+    "alerts": 9.8,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7714285714285715,
+    "alerts": 10.485714285714286,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.4671428571428572,
+    "alerts": 10.514285714285714,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6128571428571429,
+    "alerts": 10.085714285714285,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.19,
+    "alerts": 10.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7728571428571429,
+    "alerts": 9.714285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8142857142857143,
+    "alerts": 10.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7685714285714286,
+    "alerts": 9.771428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8357142857142857,
+    "alerts": 11.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8214285714285714,
+    "alerts": 10.028571428571428,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m8_w1": {
+   "F_ISO": {
+    "capture": 0.6185714285714285,
+    "alerts": 14.314285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.5628571428571428,
+    "alerts": 14.628571428571428,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5514285714285714,
+    "alerts": 14.342857142857143,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.23,
+    "alerts": 14.885714285714286,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.45428571428571424,
+    "alerts": 13.82857142857143,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.17285714285714288,
+    "alerts": 14.571428571428571,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.42142857142857143,
+    "alerts": 14.514285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.85,
+    "alerts": 13.8,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.39714285714285713,
+    "alerts": 14.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8114285714285714,
+    "alerts": 15.0,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.85,
+    "alerts": 13.942857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m8_w3": {
+   "F_ISO": {
+    "capture": 0.8185714285714285,
+    "alerts": 14.314285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8342857142857144,
+    "alerts": 14.628571428571428,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.8099999999999999,
+    "alerts": 14.342857142857143,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.45,
+    "alerts": 14.885714285714286,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6557142857142857,
+    "alerts": 13.82857142857143,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.24857142857142855,
+    "alerts": 14.571428571428571,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7271428571428571,
+    "alerts": 14.514285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.85,
+    "alerts": 13.8,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7271428571428572,
+    "alerts": 14.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8642857142857143,
+    "alerts": 15.0,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.85,
+    "alerts": 13.942857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "forecast_m8_w5": {
+   "F_ISO": {
+    "capture": 0.8385714285714286,
+    "alerts": 14.314285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8542857142857143,
+    "alerts": 14.628571428571428,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.8285714285714286,
+    "alerts": 14.342857142857143,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.5742857142857143,
+    "alerts": 14.885714285714286,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6914285714285714,
+    "alerts": 13.82857142857143,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.26142857142857145,
+    "alerts": 14.571428571428571,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.8085714285714286,
+    "alerts": 14.514285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.85,
+    "alerts": 13.8,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8185714285714285,
+    "alerts": 14.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8642857142857143,
+    "alerts": 15.0,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.85,
+    "alerts": 13.942857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m3_w1": {
+   "F_ISO": {
+    "capture": 0.5785714285714286,
+    "alerts": 8.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.4957142857142858,
+    "alerts": 7.771428571428571,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.45714285714285713,
+    "alerts": 7.257142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.15,
+    "alerts": 6.8,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.34571428571428575,
+    "alerts": 7.9714285714285715,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.10142857142857142,
+    "alerts": 7.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.37571428571428567,
+    "alerts": 7.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7714285714285715,
+    "alerts": 7.9714285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.3657142857142857,
+    "alerts": 8.114285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.7100000000000001,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7928571428571428,
+    "alerts": 8.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m3_w3": {
+   "F_ISO": {
+    "capture": 0.7871428571428571,
+    "alerts": 8.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.74,
+    "alerts": 7.771428571428571,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.65,
+    "alerts": 7.257142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.34,
+    "alerts": 6.8,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.44571428571428573,
+    "alerts": 7.9714285714285715,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.14285714285714285,
+    "alerts": 7.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.6285714285714286,
+    "alerts": 7.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7714285714285715,
+    "alerts": 7.9714285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7014285714285714,
+    "alerts": 8.114285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.7328571428571428,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7928571428571428,
+    "alerts": 8.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m3_w5": {
+   "F_ISO": {
+    "capture": 0.7928571428571428,
+    "alerts": 8.2,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.7457142857142858,
+    "alerts": 7.771428571428571,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.6671428571428571,
+    "alerts": 7.257142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.44285714285714284,
+    "alerts": 6.8,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.4742857142857143,
+    "alerts": 7.9714285714285715,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.14857142857142855,
+    "alerts": 7.942857142857143,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7100000000000001,
+    "alerts": 7.885714285714286,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.7714285714285715,
+    "alerts": 7.9714285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7957142857142857,
+    "alerts": 8.114285714285714,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.7328571428571428,
+    "alerts": 7.914285714285715,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.7928571428571428,
+    "alerts": 8.085714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m5_w1": {
+   "F_ISO": {
+    "capture": 0.6285714285714286,
+    "alerts": 13.0,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.5857142857142857,
+    "alerts": 12.685714285714285,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5328571428571428,
+    "alerts": 12.457142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.16999999999999998,
+    "alerts": 11.285714285714286,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.4,
+    "alerts": 12.6,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.1271428571428571,
+    "alerts": 12.485714285714286,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.3871428571428572,
+    "alerts": 11.742857142857142,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.371428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.38571428571428573,
+    "alerts": 12.971428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.7928571428571428,
+    "alerts": 12.857142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.82857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m5_w3": {
+   "F_ISO": {
+    "capture": 0.8514285714285714,
+    "alerts": 13.0,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8585714285714285,
+    "alerts": 12.685714285714285,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7685714285714286,
+    "alerts": 12.457142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.37857142857142856,
+    "alerts": 11.285714285714286,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.5814285714285714,
+    "alerts": 12.6,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.20142857142857146,
+    "alerts": 12.485714285714286,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.6471428571428571,
+    "alerts": 11.742857142857142,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.371428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7428571428571429,
+    "alerts": 12.971428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8442857142857143,
+    "alerts": 12.857142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.82857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m5_w5": {
+   "F_ISO": {
+    "capture": 0.8571428571428571,
+    "alerts": 13.0,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.685714285714285,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7857142857142857,
+    "alerts": 12.457142857142857,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.5228571428571428,
+    "alerts": 11.285714285714286,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.6228571428571428,
+    "alerts": 12.6,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.20714285714285716,
+    "alerts": 12.485714285714286,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7285714285714285,
+    "alerts": 11.742857142857142,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.371428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8442857142857143,
+    "alerts": 12.971428571428572,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8442857142857143,
+    "alerts": 12.857142857142858,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8642857142857143,
+    "alerts": 12.82857142857143,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m8_w1": {
+   "F_ISO": {
+    "capture": 0.6571428571428571,
+    "alerts": 20.685714285714287,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.6,
+    "alerts": 20.457142857142856,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.5614285714285714,
+    "alerts": 20.228571428571428,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.21857142857142858,
+    "alerts": 18.542857142857144,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.4971428571428571,
+    "alerts": 20.057142857142857,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.18714285714285717,
+    "alerts": 19.914285714285715,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.43714285714285717,
+    "alerts": 19.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.9,
+    "alerts": 19.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.4,
+    "alerts": 20.142857142857142,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.8214285714285714,
+    "alerts": 21.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8857142857142857,
+    "alerts": 20.285714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m8_w3": {
+   "F_ISO": {
+    "capture": 0.88,
+    "alerts": 20.685714285714287,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.8871428571428571,
+    "alerts": 20.457142857142856,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.7971428571428572,
+    "alerts": 20.228571428571428,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.44571428571428573,
+    "alerts": 18.542857142857144,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.7100000000000001,
+    "alerts": 20.057142857142857,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.29,
+    "alerts": 19.914285714285715,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.7757142857142857,
+    "alerts": 19.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.9,
+    "alerts": 19.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.7714285714285715,
+    "alerts": 20.142857142857142,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.88,
+    "alerts": 21.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8857142857142857,
+    "alerts": 20.285714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  },
+  "nomax_m8_w5": {
+   "F_ISO": {
+    "capture": 0.8857142857142857,
+    "alerts": 20.685714285714287,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7542857142857144
+   },
+   "F_ISObc": {
+    "capture": 0.9071428571428571,
+    "alerts": 20.457142857142856,
+    "mae_pct": 1.948839515975616,
+    "tail": 0.7657142857142858
+   },
+   "F_mix": {
+    "capture": 0.8214285714285714,
+    "alerts": 20.228571428571428,
+    "mae_pct": 3.2086178040745197,
+    "tail": 0.7028571428571428
+   },
+   "F_ml": {
+    "capture": 0.5957142857142858,
+    "alerts": 18.542857142857144,
+    "mae_pct": 5.153723749210056,
+    "tail": 0.3428571428571428
+   },
+   "F_pers": {
+    "capture": 0.7514285714285714,
+    "alerts": 20.057142857142857,
+    "mae_pct": 6.221223475412591,
+    "tail": 0.41142857142857137
+   },
+   "F_week": {
+    "capture": 0.3014285714285714,
+    "alerts": 19.914285714285715,
+    "mae_pct": 10.977263514185054,
+    "tail": 0.08571428571428572
+   },
+   "S_ar1": {
+    "capture": 0.8571428571428571,
+    "alerts": 19.6,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.7085714285714286
+   },
+   "S_bias": {
+    "capture": 0.9,
+    "alerts": 19.485714285714284,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   },
+   "S_noise": {
+    "capture": 0.8871428571428571,
+    "alerts": 20.142857142857142,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.76
+   },
+   "S_shrink": {
+    "capture": 0.88,
+    "alerts": 21.057142857142857,
+    "mae_pct": 2.4841499234118936,
+    "tail": 0.8171428571428572
+   },
+   "S_under": {
+    "capture": 0.8857142857142857,
+    "alerts": 20.285714285714285,
+    "mae_pct": 2.4841499234118936,
+    "tail": 1.0
+   }
+  }
+ }
+}

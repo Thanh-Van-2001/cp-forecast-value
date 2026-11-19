@@ -65,4 +65,56 @@ fig.tight_layout()
 fig.savefig("paper/fig_error_types.pdf")
 fig.savefig("out/fig_error_types.png")
 plt.close(fig)
+
+# Figure 3 (amendment 5): PJM's one-hour offset in EIA-930 and its effect on CP capture
+import json  # noqa: E402
+
+LC = json.load(open("out_realign/lag_check.json"))
+PUB, RA = "#D55E00", "#0072B2"
+fig, (a1, a2) = plt.subplots(1, 2, figsize=(6.6, 2.7), gridspec_kw={"width_ratios": [1.05, 1]})
+names = {"ERCO": "ERCOT", "NYIS": "NYISO", "ISNE": "ISO-NE"}
+for b, nm in names.items():
+    yrs = sorted(int(y) for y in LC[b])
+    a1.plot(yrs, [LC[b][str(y)]["year"]["mae"]["0"] for y in yrs], color="#bbbbbb", lw=1, zorder=1)
+    a1.annotate(nm, (yrs[-1], LC[b][str(yrs[-1])]["year"]["mae"]["0"]), xytext=(3, 0), textcoords="offset points",
+                fontsize=6.5, color="#777777", va="center")
+yrs = sorted(int(y) for y in LC["PJM"])
+a1.plot(yrs, [LC["PJM"][str(y)]["year"]["mae"]["0"] for y in yrs], color=PUB, lw=2, marker="o", ms=3.5,
+        label="PJM, as published", zorder=3)
+post = [y for y in yrs if y >= 2019]
+a1.plot([2018] + post, [LC["PJM"]["2018"]["year"]["mae"]["0"]] + [LC["PJM"][str(y)]["year"]["mae"]["-1"] for y in post],
+        color=RA, lw=2, ls="--", marker="o", ms=3.5, label="PJM, forecast delayed 1 h", zorder=3)
+a1.axvline(2019, color="#999999", lw=0.8, ls=":")
+a1.text(2018.85, 4.15, "offset from\nFeb 2019", fontsize=6.5, color="#555555", va="top", ha="right")
+a1.set_ylabel("Forecast MAE (% of mean load)")
+a1.set_xlim(2015.6, 2027.6)
+a1.set_ylim(1.5, 4.2)
+a1.set_xticks([2016, 2018, 2020, 2022, 2024, 2026])
+a1.grid(color="#eeeeee", lw=0.6)
+a1.legend(frameon=False, fontsize=6.5, loc="lower left")
+a1.set_title("(a) Day-ahead forecast error by year", fontsize=8, loc="left")
+cats = [("F_ISO", 1), ("F_ISO", 3), ("F_ISObc", 1), ("F_ISObc", 3)]
+clab = ["ISO, 1-h window", "ISO, 3-h window", "ISO bias-corr., 1-h", "ISO bias-corr., 3-h"]
+vals = {}
+for od, key in (("out", "pub"), ("out_realign", "ra")):
+    Q = pd.read_csv(f"{od}/panel.csv")
+    Q = Q[(Q.ba == "PJM") & (Q.mult == 5) & (Q.scale == "nomax")]
+    vals[key] = [int(Q[(Q.forecaster == fc) & (Q.window == w)].hits.sum()) for fc, w in cats]
+ncp = int(Q[(Q.forecaster == "F_ISO") & (Q.window == 3)].n_cp.sum())
+yy = np.arange(len(cats))
+for off, key, col, lab in ((-0.19, "pub", PUB, "as published"), (0.19, "ra", RA, "delayed 1 h")):
+    a2.barh(yy + off, vals[key], height=0.36, color=col, label=lab, edgecolor="white", linewidth=1)
+    for yv, v in zip(yy + off, vals[key]):
+        a2.text(v + 0.6, yv, str(v), fontsize=6.5, va="center", color="#333333")
+a2.set_yticks(yy, clab, fontsize=7)
+a2.invert_yaxis()
+a2.set_xlim(0, ncp + 4)
+a2.set_xlabel(f"PJM CP hours caught (of {ncp})")
+a2.grid(axis="x", color="#eeeeee", lw=0.6)
+a2.legend(frameon=False, fontsize=6.5, loc="upper center", bbox_to_anchor=(0.45, -0.22), ncol=2)
+a2.set_title("(b) Capture at equal alert budgets", fontsize=8, loc="left")
+fig.tight_layout()
+fig.savefig("paper/fig_pjm_offset.pdf")
+fig.savefig("out_realign/fig_pjm_offset.png")
+plt.close(fig)
 print("figures written")

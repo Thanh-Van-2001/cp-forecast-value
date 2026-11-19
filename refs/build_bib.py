@@ -23,6 +23,8 @@ DOIS = {
     "kendall1945ties": "10.1093/biomet/33.3.239",
     "wilcoxon1945individual": "10.2307/3001968",
     "efron1993bootstrap": "10.1201/9780429246593",
+    "zarnikau2013response": "10.1016/j.jup.2013.04.004",
+    "skiles2023peak": "10.1016/j.tej.2023.107254",
 }
 ARXIV = {
     "zhang2026cp": "2605.16794",

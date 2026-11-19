@@ -1,0 +1,227 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\usepackage{lineno}
+\setstretch{1.4}
+\emergencystretch=2em
+\input{macros}
+\newcommand{\repoURL}{https://github.com/Thanh-Van-2001/cp-forecast-value}
+\journal{The Electricity Journal}
+
+\begin{document}
+\begin{frontmatter}
+\title{Which load forecast catches coincident peaks? Accuracy, the shape of the error, and a one-hour error in public data across four US markets}
+\author{Thanh Van Nguyen}
+\ead{felicenguyen2001@gmail.com}
+\address{Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen, China}
+
+\begin{abstract}
+Large customers in ERCOT, PJM and other US markets pay transmission or capacity charges set by their load in a few system peak hours, and they curtail on the days a forecast flags. Peak forecasts are sold on accuracy, but whether accuracy, or the shape of a forecast's error, decides how many coincident peaks a customer catches has not been measured. With a pre-specified plan and public EIA-930 data for ERCOT (4CP), PJM (5CP), NYISO and ISO-NE, \res{firstYear}--\res{lastYear} (\res{nCPtotal} peak hours), I compared six real day-ahead forecasts with five synthetic forecasts that have exactly the operator forecast's error but different shapes, under out-of-sample alert rules. Accuracy separated poor forecasts from good ones (Kendall $\tau$ between error and capture \res{hOneTau}) but not good ones from each other ($\tau=\res{tauStrong}$). At equal error and equal alerts, errors that keep the order of days caught \res{capShrinkExact}--\res{capBiasExact}\% of peaks and random errors about \res{capNoiseExact}\%. The operators' free forecasts beat a weather-free machine-learning model. I also found that PJM's day-ahead forecast in EIA-930 has been stamped one hour early relative to its demand since February 2019. Taken as published, it caught \res{pjmPubIsoNomaxW3} of \res{pjmNcp} PJM peak hours at equal alert budgets; realigned, \res{pjmRaIsoNomaxW3}, and with a one-hour curtailment window \res{pjmPubIsoNomaxW1} against \res{pjmRaIsoNomaxW1}. Its annual error fell from \res{lagPjmPostZero}\% to \res{lagPjmPostShift}\%, the pre-2019 level. No hypothesis outcome changed. Customers and regulators should judge peak forecasts by backtested capture at equal alert budgets, and users of EIA-930 should check that forecast and demand are aligned.
+\end{abstract}
+
+\begin{keyword}
+coincident peak \sep 4CP \sep transmission charges \sep load forecasting \sep demand response \sep EIA-930
+\end{keyword}
+\end{frontmatter}
+
+\linenumbers
+
+\section{Introduction}
+
+In several US electricity markets a large customer's transmission or capacity charge for a whole year is set by its own load in a handful of system peak hours. ERCOT allocates transmission cost by each customer's load in the four monthly system peaks of June to September (4CP) \citep{puct25192}; PJM sets capacity peak-load contributions from the five highest summer daily peaks (5CP) \citep{pjm_m19}; NYISO and ISO-NE base capacity obligations on a single annual or seasonal peak. Because a few hours carry a year's charge, customers with flexible load curtail when they expect a coincident peak (CP). Large industrial customers in ERCOT have responded to 4CP charges for years \citep{zarnikau2013response}, data centres can shift workload to avoid the coincident peak \citep{liu2013datacenter}, and the timing and season of system peaks are themselves changing with weather and electrification \citep{skiles2023peak}.
+
+The timing decision rests on a day-ahead load forecast, from the system operator or a commercial vendor. Such forecasts are compared, bought and sold on accuracy, usually the mean absolute (percentage) error \citep{hyndman2006another,hong2016probabilistic}. Accuracy is not obviously the right yardstick. A customer does not need the peak load itself; it needs to know which days will be among the highest of the month or summer, with a limited number of curtailments. A forecast that is too high by a constant amount ranks the days perfectly; a forecast with small but erratic errors can misorder them.
+
+\paragraph{The research gap} Three bodies of work bear on this decision, and none answers the customer's question. First, work on coincident-peak response documents that customers curtail \citep{zarnikau2013response,liu2013datacenter} and models how their curtailment moves the peak \citep{zhang2026cp}, but takes the forecast as given. Second, work on predicting coincident peaks builds alert rules on a forecast: \citet{carmona2026cp} predict CP days and hours from operator forecasts in NYISO and PJM and show that a few alerts a year can catch most single peaks, but they use one forecast per market and do not ask whether a better forecast would catch more. Third, the forecast-verification literature has long argued that a forecast's value depends on the decision it serves \citep{murphy1993good,gneiting2011point} and has motivated decision-focused learning \citep{elmachtoub2022spo}, yet load forecasts are still ranked by error metrics \citep{hong2014gefcom}, and for coincident peaks no study, to my knowledge, has measured whether error predicts capture, whether the \emph{form} of an error matters at a given size, or how forecasts compare when they issue the same number of alerts. A related gap concerns the data: studies of US load forecasts rely on EIA-930, whose demand series has been screened and imputed \citep{ruggles2020eia}, but the alignment of its forecast series with demand, on which every forecast evaluation depends, has not been examined.
+
+\paragraph{Contributions} This article fills these gaps with a pre-specified study of nine summers in four markets (ERCOT, PJM, NYISO, ISO-NE; \res{nCPtotal} CP hours). Its contributions are:
+\begin{enumerate}
+\item A head-to-head comparison of eleven forecasts on the share of coincident peaks caught under fixed, out-of-sample alert rules, including rules that hold the number of alerts equal across forecasts. Accuracy separated poor forecasts from good ones but did not rank good ones.
+\item A same-error design: five synthetic forecasts with exactly the operator forecast's error in every market-year but different error shapes. It isolates the shape from the size of the error and shows that, at equal error and equal alerts, errors that keep the order of days lose almost no peaks while random errors lose about one in five, and that forecasts that compress peaks fail when thresholds come from actual past peaks.
+\item Evidence that neither the mean absolute error nor a simple score of how well a forecast ranks the top days substitutes for backtesting capture, and that the operators' free forecasts, after a 28-day bias correction, are the strongest baseline; this gives customers, vendors and regulators a concrete evaluation protocol.
+\item A measurement of what a timing error in the public data does to such evaluations. PJM's day-ahead forecast in EIA-930 has been stamped one hour early relative to its demand since February 2019, an offset first noted in the author's separate screening of EIA-930 (under review). Here it is confirmed for all four markets and its consequences are measured: it inflates the operator forecast's apparent error by half and cuts the PJM peak hours the forecast appears to catch from \res{pjmRaIsoNomaxW3} to \res{pjmPubIsoNomaxW3} of \res{pjmNcp} at equal alerts. A two-line alignment check detects it.
+\end{enumerate}
+Hypotheses, forecasts, rules and tests were fixed in a version-controlled plan before the analysis; all amendments are disclosed.
+
+\section{Coincident-peak charges and the forecasting decision}
+
+Coincident-peak tariffs allocate the cost of transmission or capacity by each customer's share of system load in the hours that drive investment. For a customer that can shift or shed load, the charge creates an incentive to curtail on a few days a year, one of the most valuable forms of demand response \citep{albadi2008dr}; the incentive applies to any customer whose charge follows a few peak hours.
+
+The decision has two parts. First, which days to alert, given that each curtailment has a cost and only a limited number are acceptable. Second, which hours to curtail on an alerted day. Both depend on a forecast of the day's load profile, but neither depends on the forecast's level as such: what matters is whether the forecast ranks the coming day correctly against the other days of the period and places its peak in the right hour. A forecast's mean absolute error measures neither directly. Whether accuracy nonetheless tracks the share of peaks caught is an empirical question, and one with commercial weight, since CP alert services are sold to customers who cannot easily tell a good service from a lucky one.
+
+\section{Data and approach}
+
+\subsection{Data and coincident peaks}
+
+EIA's Form EIA-930 data give, for each balancing authority, hourly demand and the authority's own day-ahead demand forecast \citep{eia930}. I used the six-month files from July 2015 to November 2026 for ERCOT, PJM, NYISO and ISO New England: \res{nRows} hourly records. EIA-930 contains recording errors \citep{ruggles2020eia}. Values that were zero or negative, or more than twice or less than 0.3 times the centred one-week median of demand, were set missing (\res{screenDemand} demand and \res{screenForecast} forecast values). A market-year was excluded if more than 2\% of its June--September hours lacked data or if a CP day lacked any hour of demand or forecast; this excluded \res{excludedSeasons}.
+
+CP hours were identified from hourly demand: for ERCOT, the highest hour of each month from June to September; for PJM, the peak hours of the five highest days among non-holiday weekdays, June 1 to September 30; for NYISO, the highest summer hour; for ISO-NE, the highest hour of the year, which fell in summer in every test year. The official definitions differ in detail (ERCOT uses 15-minute intervals, NYISO's capability period is longer), so these CPs approximate the official ones. The test seasons ran from \res{firstYear} to \res{lastYear}: \res{nMarketYears} market-years and \res{nCPtotal} CP hours (ERCOT \res{nCPErcot}, PJM \res{nCPPjm}, NYISO \res{nCPNyiso}, ISO-NE \res{nCPIsone}).
+
+\subsection{Forecasts}
+
+Six forecasts are real: the operator's day-ahead forecast (``ISO''); the same minus its mean error at that hour over the previous 28 days (``ISO, bias-corrected''); the load at the same hour one day and one week earlier (``yesterday'', ``last week''); a gradient-boosted model \citep{ke2017lightgbm} on lagged loads and calendar variables, trained on earlier years without weather data (``LightGBM''); and the average of ISO and LightGBM.
+
+Five forecasts are synthetic. In each market-year they are built from actual summer load and scaled so that their mean absolute error equals that of the ISO forecast in that market-year: a constant over-forecast, a constant under-forecast, independent random noise, autocorrelated noise, and ``shrink to mean'', which pulls each hour towards its 28-day average and so compresses peaks. All five are as accurate as the operator's forecast; they differ only in the form of their error. Because the three without noise place each day's peak in the right hour by construction, the share of CP \emph{days} alerted is also reported.
+
+\subsection{Alert rules}
+
+A customer decides each day, before it starts, whether to curtail. If it alerts, it curtails for three hours centred on the forecast peak hour, and a CP hour counts as caught if its day was alerted and the hour falls in the window. In the primary rule a day is alerted when its forecast peak exceeds both a threshold and 97\% of the highest forecast peak so far in the period (month for ERCOT, summer otherwise). The threshold is set on earlier seasons so that the rule issues on average five alerts per CP (ERCOT \res{budgetErcot} a summer, PJM \res{budgetPjm}, NYISO and ISO-NE \res{budgetNyiso}). Everything is fitted on earlier seasons only, so there is no look-ahead.
+
+Under the primary rule the running-maximum condition, not the threshold, often decided how many alerts a forecast issued, so alert counts differ between forecasts. Two secondary rules hold alert counts close to equal: the same rule without the running maximum, and an ex post rule that alerts the budgeted number of days with the highest forecast peaks. A third secondary rule sets the threshold from \emph{actual} past peaks, as a customer comparing a vendor's forecast with observed peaks might. Budgets of three and eight alerts per CP and windows of one and five hours are robustness checks (\ref{app:robust}).
+
+\subsection{Pre-specified questions and amendments}
+
+Four hypotheses were fixed in advance, for the primary rule and all eleven forecasts. H1: within market-years, error and capture are negatively rank-correlated (Kendall $\tau_b$; \citealp{kendall1945ties}), on average over market-years (bootstrap; \citealp{efron1993bootstrap}). H2: shrink to mean catches fewer CPs than the other same-error forms (one-sided Wilcoxon tests with Holm's correction; \citealp{wilcoxon1945individual,holm1979simple}). H3: a score of how many of the season's five highest days a forecast ranks among its own top five predicts capture better than error does. H4: the ISO forecast catches at least as many CPs as LightGBM in every market and more in at least three.
+
+The plan was amended five times; every amendment, its reason and what it changed are logged with the code (\ref{app:amend}). Two were made before the full run, two after it (a screen for recording errors, and corrections after an internal referee-style review, which changed H3 from supported to not supported), and the fifth after the offset in Section~\ref{sec:offset} came to light: the whole analysis was rerun with PJM's forecast realigned, the original results were kept, and both are reported. The results below are for the data as published unless marked ``realigned''; no hypothesis outcome differs between the two.
+
+\section{Findings}
+\label{sec:results}
+
+\subsection{Accuracy helps, but only coarsely}
+
+Figure~\ref{fig:cap} and Table~\ref{tab:market} show capture against accuracy under the primary rule. The bias-corrected ISO forecast was the most accurate real forecast (error \res{maeIsobc}\% of mean summer load) and the best real catcher of peaks (\res{capIsobc}\% of CP hours), ahead of the raw ISO forecast (\res{maeIso}\%, \res{capIso}\%). The forecasts based on yesterday's and last week's load, with errors of \res{maePers}\% and \res{maeWeek}\%, caught \res{capPers}\% and \res{capWeek}\%, and LightGBM (\res{maeMl}\%) caught \res{capMl}\%.
+
+H1 was supported: error and capture were negatively rank-correlated (mean $\tau=\res{hOneTau}$, 95\% interval \res{hOneLo} to \res{hOneHi}, $p\res{hOneP}$; realigned \res{raHOneTau}). But the association came from separating poor forecasts from good ones. Among the eight forecasts as accurate as the operator's (the three ISO-based and five synthetic forecasts), $\tau$ was only \res{tauStrong} (realigned \res{raTauStrong}; exploratory). A forecast with two or four times the operator's error loses many peaks; among good forecasts, a lower error says almost nothing about how many peaks a forecast will catch.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\linewidth]{fig_capture_mae.pdf}
+\caption{Share of coincident-peak hours caught against mean absolute error, primary rule, averaged over \res{nMarketYears} market-years (data as published). Synthetic forecasts (diamonds) have the same error as the ISO forecast in each market-year. Alert counts differ between forecasts under this rule.}
+\label{fig:cap}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Share of coincident-peak hours caught (\%) by market, primary rule (three-hour window, five alerts per CP). The last row repeats PJM with its forecast realigned (Section~\ref{sec:offset}). Alert counts differ between forecasts under this rule.}
+\label{tab:market}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Market & CPs & Alerts & ISO & ISO bc & LightGBM & Yesterday & Shrink & Noise \\
+\midrule
+ERCOT 4CP & \res{nCPErcot} & \res{budgetErcot} & \res{capIsoErcot} & \res{capIsobcErcot} & \res{capMlErcot} & \res{capPersErcot} & \res{capShrinkErcot} & \res{capNoiseErcot} \\
+PJM 5CP & \res{nCPPjm} & \res{budgetPjm} & \res{capIsoPjm} & \res{capIsobcPjm} & \res{capMlPjm} & \res{capPersPjm} & \res{capShrinkPjm} & \res{capNoisePjm} \\
+NYISO & \res{nCPNyiso} & \res{budgetNyiso} & \res{capIsoNyiso} & \res{capIsobcNyiso} & \res{capMlNyiso} & \res{capPersNyiso} & \res{capShrinkNyiso} & \res{capNoiseNyiso} \\
+ISO-NE & \res{nCPIsone} & \res{budgetIsone} & \res{capIsoIsone} & \res{capIsobcIsone} & \res{capMlIsone} & \res{capPersIsone} & \res{capShrinkIsone} & \res{capNoiseIsone} \\
+\midrule
+PJM, realigned & \res{raNCPPjm} & \res{raBudgetPjm} & \res{raCapIsoPjm} & \res{raCapIsobcPjm} & \res{raCapMlPjm} & \res{raCapPersPjm} & \res{raCapShrinkPjm} & \res{raCapNoisePjm} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{At equal accuracy, the shape of the error matters}
+
+The five synthetic forecasts have the same error as the operator's forecast in every market-year, yet their capture differed by up to \res{synSpread} percentage points under the primary rule (Figure~\ref{fig:types}). Once alert counts are held equal, the pattern is clear. Alerting exactly the budgeted number of days, errors that keep the order of days caught nearly every peak: \res{capBiasExact}\% for a constant over- or under-forecast and \res{capShrinkExact}\% for shrink to mean. Random errors of the same size caught \res{capNoiseExact}\% (independent) and \res{capAroneExact}\% (autocorrelated). At the same accuracy, noise thus costs about one peak in five.
+
+H2, that compressed peaks would do worst, was not supported (one-sided $p=\res{hTwoPBias}$, \res{hTwoPUnder} and \res{hTwoPNoise}). Compression is harmless when the alert threshold is set on the forecast's own past values, because the whole forecast is compressed alike. It is harmful when the threshold comes from actual past peaks: then shrink to mean caught only \res{capShrinkActual}\% of CPs, against \res{capBiasActual}\% for a constant over-forecast, because its compressed peaks rarely reached the threshold. For the operator forecasts the two ways of setting thresholds gave similar results (ISO \res{capIso}\% and \res{capIsoActual}\%), but a forecast that compresses peaks, as many statistical models do at extremes, needs thresholds calibrated on its own scale.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{fig_error_types.pdf}
+\caption{Coincident peaks caught by five synthetic forecasts with the same mean absolute error as the ISO forecast, under three ways of using the forecast: thresholds on the forecast's own scale (primary rule; alert counts differ), thresholds from actual past peaks, and the ex post choice of the budgeted number of days with the highest forecast peaks (equal alert counts). Data as published.}
+\label{fig:types}
+\end{figure}
+
+\subsection{A better summary score?}
+
+If accuracy is a poor guide among good forecasts, perhaps a score of how well a forecast ranks the season's top days is a better one. H3 was not supported: the top-five ranking score was associated with capture about as strongly as error was (mean $\tau=\res{hThreeTail}$ against \res{hOneTau}; one-sided $p=\res{hThreeP}$, realigned \res{raHThreeP}). Measured on the previous season, so that it could be known in advance, the two were equally informative ($\tau=\res{oosTail}$ and \res{oosMae}; exploratory). No single summary score replaced a backtest of capture.
+
+\subsection{Operator forecasts are a strong free baseline}
+
+H4 was supported. The ISO forecast caught at least as many CPs as LightGBM in every market and more in three: in ERCOT \res{hFourIsoErcot} against \res{hFourMlErcot} of \res{hFourNErcot} CP hours, in NYISO \res{hFourIsoNyiso} against \res{hFourMlNyiso} of \res{hFourNNyiso}, in ISO-NE \res{hFourIsoIsone} against \res{hFourMlIsone} of \res{hFourNIsone}. In PJM the two tied at \res{hFourIsoPjm} of \res{hFourNPjm} on the data as published; realigned, the ISO forecast caught \res{raHFourIsoPjm}, so it won in all four markets. LightGBM had no weather input, so this is a comparison with a deliberately simple model. It shows that the operators' forecasts, which are free and use weather, set a bar that a paid service should be required to clear on capture, not on accuracy alone. A simple hour-by-hour bias correction over the previous 28 days improved them further (\res{capIsobc}\% against \res{capIso}\% of CPs).
+
+\subsection{A one-hour offset in PJM's public forecast}
+\label{sec:offset}
+
+A separate screening of the EIA-930 data by the author (a conference paper under review; code at \url{https://github.com/Thanh-Van-2001/eia930-quality}) found that PJM's forecast column lines up with its demand column one hour later than labelled. I checked this here for all four markets, comparing each year's forecast error with the forecast shifted by up to two hours either way (Figure~\ref{fig:offset}a). In ERCOT, NYISO and ISO-NE no shift improved the forecast in any of \res{lagOtherN} market-years. In PJM, pairing each hour's demand with the forecast stamped one hour earlier gave the lowest error in every year from 2019 (\res{lagPjmYearsBest} of \res{lagPjmYearsPost}), and the separate study dates the change to February 2019. Realigned, PJM's annual forecast error fell from \res{lagPjmPostZero}\% to \res{lagPjmPostShift}\% of mean load (summer \res{lagPjmSummerZero}\% to \res{lagPjmSummerShift}\%), the same as its 2016--2018 level of \res{lagPjmPre}\%. A third of the operator's apparent error since 2019 is an artefact of the time stamps. From EIA-930 alone I cannot tell whether the forecast is stamped early or the demand late; I am not aware that the offset has been documented.
+
+For coincident peaks the offset matters more than the error figures suggest, because it moves the forecast peak hour. With alert counts held near the budget (the rule without a running maximum), the ISO forecast caught \res{pjmPubIsoNomaxW3} of \res{pjmNcp} PJM CP hours in a three-hour window on the data as published and \res{pjmRaIsoNomaxW3} after realignment; in a one-hour window, \res{pjmPubIsoNomaxW1} against \res{pjmRaIsoNomaxW1} (Figure~\ref{fig:offset}b). The days chosen were the same: the realigned and published forecasts alerted all PJM CP days under this rule (\res{pjmDayPubIsoNomax}\% and \res{pjmDayRaIsoNomax}\%). Under the primary rule the ISO forecast caught \res{pjmPubIsoPrimW3} of \res{pjmNcp} as published and \res{pjmRaIsoPrimW3} realigned. The bias-corrected forecast was largely immune (\res{pjmPubIsobcNomaxW3} and \res{pjmRaIsobcNomaxW3} of \res{pjmNcp}), because a one-hour shift shows up as a stable error at each hour of the day, which the correction removes.
+
+Anyone who backtests PJM peak alerts on the public data without checking alignment would therefore conclude that the operator's free forecast is a mediocre guide to the hour of the peak, and that a vendor's forecast is much better, when the difference is a labelling error. The general results above did not depend on it: realignment changed none of the four hypothesis outcomes, and the overall correlation between error and capture moved from \res{hOneTau} to \res{raHOneTau}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig_pjm_offset.pdf}
+\caption{PJM's day-ahead forecast in EIA-930. (a) Annual mean absolute error of each market's forecast as published (grey: ERCOT, NYISO, ISO-NE; orange: PJM) and of PJM's forecast delayed by one hour (blue). (b) PJM coincident-peak hours caught by the ISO forecast and its bias-corrected version, \res{firstYear}--\res{lastYear}, with alert counts held near the budget (rule without running maximum), as published and realigned.}
+\label{fig:offset}
+\end{figure}
+
+\section{Implications for customers, operators and regulators}
+
+\paragraph{Customers and vendors.} CP forecasts and the alert services built on them should be compared by backtested capture at an equal number of alerts, over several seasons and in the customer's own market, not by accuracy. Among forecasts as accurate as the operators', accuracy did not predict capture here, and neither did a simple score of how well a forecast ranks the top days. A vendor's claim of lower error is therefore weak evidence that its alerts will catch more peaks; a claim of more peaks caught is weak evidence unless the number of alerts is stated. Customers should also ask how alert thresholds are set: a forecast that compresses peaks loses many of them when its output is compared with actual past peaks.
+
+\paragraph{The operators' forecasts as a baseline.} The operators' day-ahead forecasts are free, use weather, and caught more peaks than a weather-free model in every market. With a 28-day, hour-by-hour bias correction, which any customer can compute, they were the best real forecasts in this study. Any paid service should be benchmarked against that corrected operator forecast.
+
+\paragraph{EIA and users of EIA-930.} EIA-930 is the standard public source for comparing US load forecasts across regions, and its demand and forecast columns are widely treated as aligned. For PJM, they have not been since February 2019. EIA could document each balancing authority's time convention for the forecast column, check the alignment of forecast and demand routinely, and flag or correct offsets. Until then, users should check alignment themselves before any forecast evaluation; comparing the error at shifts of one hour either way, as in Figure~\ref{fig:offset}a, takes a few lines of code.
+
+\paragraph{Regulators and tariff design.} Coincident-peak charges reward customers for predicting the ranking of days and the hour of the peak, which accuracy-based comparisons do not measure. Regulators who review demand-response programmes or CP-based tariffs, and the customers who respond to them, would be better served by evaluations in terms of peaks caught per alert. Because the CP itself can move when many customers curtail at once \citep{zhang2026cp}, the value of such forecasts may change as more load responds.
+
+\section{Limitations}
+
+CP hours were identified from hourly EIA-930 demand and approximate the official ones. If PJM's demand rather than its forecast is the mislabelled series, the PJM CP hours here are one hour off the official ones, though the comparison between forecasts remains internally consistent. The alert rules are stylised: real customers use intraday updates, weather forecasts and judgement. Under the primary rule alert counts differ between forecasts; the secondary rules address this, one of them ex post. The synthetic forecasts are built from actual load and place each day's peak in the right hour, which the day-level results separate from ranking. The machine-learning model had no weather input, and the non-operator forecasts use slightly later information than the operator forecast. In NYISO and ISO-NE, with one CP a year, each market contributes nine peaks and the better forecasts caught nearly all of them. Capture was not converted into money, which requires customer-specific tariff rates and curtailment costs. The plan was amended five times, three times after results had been seen; all amendments and earlier results are kept with the code. The plan and amendment timestamps are local git commits, which an author can set; this is not a registered report.
+
+\section{Conclusions}
+
+A more accurate day-ahead load forecast catches more coincident peaks when the difference in accuracy is large, but among forecasts as good as the operators' own, accuracy says little. At equal accuracy, errors that preserve the order of days cost few peaks and random errors many more, and compressed forecasts need thresholds calibrated on their own scale. The operators' free forecasts, after a simple bias correction, are a strong baseline. PJM's forecast in the public EIA-930 data has been stamped one hour early since February 2019, which makes it look far worse at finding the peak hour than it is. Peak forecasts should be judged by backtested capture at equal alert budgets, on data whose alignment has been checked.
+
+\section*{Data availability}
+EIA-930 data are public \citep{eia930}. The analysis plan with its commit history and amendment log, the code, the download script with file hashes, and the results of every run are available at \url{\repoURL}.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Thanh Van Nguyen:} Conceptualization, Methodology, Software, Formal analysis, Data curation, Writing -- original draft, Writing -- review \& editing.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+During the preparation of this work the author used Claude Opus 5.5 (Anthropic; used in November 2026 through Claude Code) to help design the analysis, write and test the code, search the literature and check every reference against Crossref and arXiv, obtain a referee-style critique of the draft, and draft and edit the text. The author chose the research question, approved the analysis plan and each amendment, and checked the results. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
+
+\section*{Declaration of competing interest}
+The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\appendix
+
+\section{Robustness}
+\label{app:robust}
+
+Table~\ref{tab:robust} reports the correlations and the capture of the synthetic forecasts under the secondary rules, budgets and windows (data as published). Across all \res{nConfigs} combinations of rule, budget and window, the mean correlation between error and capture ranged from \res{tauAllMin} to \res{tauAllMax} (realigned \res{raTauAllMin} to \res{raTauAllMax}), and that between the ranking score and capture from \res{tailAllMin} to \res{tailAllMax}. Excluding 2020 changed neither ($\tau=\res{tauNoCovid}$ and \res{tailNoCovid}).
+
+\begin{table}[h]
+\centering
+\caption{Mean within-market-year Kendall $\tau$ of capture with error and with the top-five ranking score, and capture (\%) of the same-error synthetic forecasts, under the primary and secondary configurations (alerts per CP; window in hours). Data as published.}
+\label{tab:robust}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Configuration & $\tau$ error & $\tau$ rank & Over & Under & Shrink & Noise & AR(1) \\
+\midrule
+Primary (own scale, $\times5$, 3 h) & \res{hOneTau} & \res{hThreeTail} & \res{capBias} & \res{capUnder} & \res{capShrink} & \res{capNoise} & \res{capArone} \\
+No running maximum & \res{tauNomax} & \res{tailNomax} & \res{capBiasNomax} & \res{capUnderNomax} & \res{capShrinkNomax} & \res{capNoiseNomax} & \res{capAroneNomax} \\
+Threshold from actual peaks & \res{tauActual} & \res{tailActual} & \res{capBiasActual} & \res{capUnderActual} & \res{capShrinkActual} & \res{capNoiseActual} & \res{capAroneActual} \\
+Exactly budgeted days (ex post) & \res{tauExact} & \res{tailExact} & \res{capBiasExact} & \res{capUnderExact} & \res{capShrinkExact} & \res{capNoiseExact} & \res{capAroneExact} \\
+Budget $\times3$ & \res{tauMthree} & \res{tailMthree} & \res{capBiasMthree} & \res{capUnderMthree} & \res{capShrinkMthree} & \res{capNoiseMthree} & \res{capAroneMthree} \\
+Budget $\times8$ & \res{tauMeight} & \res{tailMeight} & \res{capBiasMeight} & \res{capUnderMeight} & \res{capShrinkMeight} & \res{capNoiseMeight} & \res{capAroneMeight} \\
+Window 1 h & \res{tauWone} & \res{tailWone} & \res{capBiasWone} & \res{capUnderWone} & \res{capShrinkWone} & \res{capNoiseWone} & \res{capAroneWone} \\
+Window 5 h & \res{tauWfive} & \res{tailWfive} & \res{capBiasWfive} & \res{capUnderWfive} & \res{capShrinkWfive} & \res{capNoiseWfive} & \res{capAroneWfive} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Amendments to the analysis plan}
+\label{app:amend}
+
+The plan was committed after one data file had been downloaded to check access. Amendment~1 fixed a coding error found in a pipeline check on ERCOT 2018--2019. Amendment~2, after that check and before the full run, normalised thresholds by trailing mean load, because load growth made the calibrated rules issue far more alerts than budgeted, and added the exactly-budgeted rule; the check's capture results had been seen. Amendment~3, after the full run, screened recording errors, prompted by a 2.1-billion-MW value in PJM's 2021 data. Amendment~4, after an internal referee-style review, loosened that screen (its first version also removed genuine heat-wave peaks), implemented the pre-specified exclusion of market-years with incomplete CP days, corrected the holiday calendar, made the synthetic forecasts' error exactly equal to the ISO forecast's, and added the exploratory analyses marked as such; it changed H3 from supported to not supported (H1 $\tau$ before any screening: \res{vOneTau}). Amendment~5, logged before its results were seen, reran the whole analysis with PJM's forecast delayed by one hour from February 2019 and added the alignment check of Section~\ref{sec:offset}; the results on the data as published were kept and are reported throughout.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{refs}
+
+\end{document}
