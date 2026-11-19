@@ -25,6 +25,9 @@ DOIS = {
     "efron1993bootstrap": "10.1201/9780429246593",
     "zarnikau2013response": "10.1016/j.jup.2013.04.004",
     "skiles2023peak": "10.1016/j.tej.2023.107254",
+    "murphy1987general": "10.1175/1520-0493(1987)115<1330:AGFFFV>2.0.CO;2",
+    "hobbs1999value": "10.1109/59.801894",
+    "ranaweera1997economic": "10.1109/59.630486",
 }
 ARXIV = {
     "zhang2026cp": "2605.16794",
@@ -71,8 +74,33 @@ EXTRA = r"""
   title = {{PJM} Manual 19: Load Forecasting and Analysis},
   year = {2026}
 }
+@misc{pjm2025bra,
+  author = {{PJM Interconnection}},
+  title = {2026/2027 {RPM} Base Residual Auction Results},
+  year = {2025},
+  note = {Report, July 2025. \url{https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf}}
+}
+@misc{pjm5cp,
+  author = {{PJM Interconnection}},
+  title = {Summer Peaks and {5CPs}, 2022--2026},
+  year = {2026},
+  note = {Annual reports ``Summer YYYY Peaks and 5CPs'', PJM Resource Adequacy Planning; files and SHA-256 hashes in the study repository}
+}
+@misc{guerrafilho2026scorecard,
+  author = {Guerra Filho, Ricardo Wagner Correia},
+  title = {Day-ahead load forecast accuracy of {U.S.} balancing authorities, 2015--2026: a scorecard from public {EIA-930} data},
+  year = {2026},
+  howpublished = {Cardinal Grid Notes, No. 1, version 1.3 (erratum of 21 September 2026), Zenodo},
+  doi = {10.5281/zenodo.22883589}
+}
+@misc{nguyen2026eia930,
+  author = {Nguyen, Thanh Van},
+  title = {Recording errors in {EIA-930} hourly demand and forecast data and their effect on forecast evaluation},
+  year = {2026},
+  note = {Manuscript under review, IEEE ISIE 2027. Code: \url{https://github.com/Thanh-Van-2001/eia930-quality}}
+}
 """
-TITLE_FIX = {}
+TITLE_FIX = {"THE TREATMENT OF TIES IN RANKING PROBLEMS": "The treatment of ties in ranking problems"}
 def get(url, tries=5):
     for t in range(tries):
         try:

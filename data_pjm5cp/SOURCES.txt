@@ -1,0 +1,8 @@
+PJM official summer 5CP reports ("Summer YYYY Peaks and 5CPs"), PJM Resource Adequacy Planning.
+Not redistributed here; fetch from PJM and check against SHA256SUMS.
+2022 https://www.pjm.com/-/media/planning/res-adeq/load-forecast/summer-2022-peaks-and-5cps.ashx
+2023 https://pjm.com/-/media/planning/res-adeq/load-forecast/summer-2023-peaks-and-5cps.ashx
+2024 https://pjm.com/-/media/planning/res-adeq/load-forecast/summer-2024-peaks-and-5cps.ashx
+2025 https://www.pjm.com/-/media/DotCom/planning/res-adeq/load-forecast/summer-2025-peaks-and-5cps.pdf
+2026 https://www.pjm.com/-/media/DotCom/planning/res-adeq/load-forecast/summer-2026-peaks-and-5cps.pdf
+The dates and hours used are transcribed in code/pjm_official_check.py.

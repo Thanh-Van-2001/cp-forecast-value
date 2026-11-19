@@ -208,3 +208,16 @@ F_ISO's MAE, it also changes the MAE matched by the synthetic forecasts and
 F_ISObc/F_mix for PJM. Both sets of H1-H4 outcomes are reported; neither is
 chosen after seeing which is more favourable. The corrected-data analysis is
 labelled as such, not as pre-specified.
+
+Addendum to amendment 5 (2026-11-19, after a further internal referee review; exploratory):
+- code/pjm_official_check.py compares EIA-930 with PJM's official summer 5CP
+  hours for 2022-2026 (PJM "Summer YYYY Peaks and 5CPs" files, kept with
+  SHA-256 hashes in data_pjm5cp/) to establish which series is shifted, and
+  checks the offset separately in standard-time (Dec-Feb) and daylight-time
+  (Jun-Aug) months to rule out a daylight-saving error.
+- The manuscript's claims were revised after the review: the claim that
+  accuracy does not rank good forecasts was withdrawn (it rested on a subset
+  dominated by same-error synthetic forecasts); ex post results are labelled;
+  the pre-specified primary rule leads; the bias-correction advantage is
+  attributed to PJM's misalignment; the offset is credited to its first
+  public report (Guerra Filho 2026, Zenodo erratum of 21 Sep 2026).

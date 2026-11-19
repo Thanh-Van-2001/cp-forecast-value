@@ -1,0 +1,424 @@
+{
+ "n": 25,
+ "demand_peak_at_official_hour": 24,
+ "demand_peak_within_1h": 25,
+ "forecast_peak_at_official_hour": 3,
+ "forecast_realigned_peak_at_official_hour": 15,
+ "forecast_peak_minus_official_mean": -1.2,
+ "forecast_realigned_peak_minus_official_mean": -0.2,
+ "cp_days_matching_official": {
+  "2022": 5,
+  "2023": 5,
+  "2024": 5,
+  "2025": 5,
+  "2026": 4
+ },
+ "cp_days_matching_total": 24,
+ "season": {
+  "2016_std_DecFeb": {
+   "best": 0,
+   "mae": {
+    "-1": 3.202367230698619,
+    "0": 2.187114723798271,
+    "1": 3.400124240651853
+   }
+  },
+  "2016_dst_JunAug": {
+   "best": 0,
+   "mae": {
+    "-1": 4.522896875462705,
+    "0": 2.880113537951607,
+    "1": 4.678896587679909
+   }
+  },
+  "2017_std_DecFeb": {
+   "best": 0,
+   "mae": {
+    "-1": 3.211147835353946,
+    "0": 2.1692620536788834,
+    "1": 3.3424218068325837
+   }
+  },
+  "2017_dst_JunAug": {
+   "best": 0,
+   "mae": {
+    "-1": 4.297115364627626,
+    "0": 2.653395481927306,
+    "1": 4.383532387227886
+   }
+  },
+  "2018_std_DecFeb": {
+   "best": 0,
+   "mae": {
+    "-1": 3.284045731450664,
+    "0": 2.3151082132592453,
+    "1": 3.4291881066805328
+   }
+  },
+  "2018_dst_JunAug": {
+   "best": 0,
+   "mae": {
+    "-1": 4.393730786905947,
+    "0": 2.869275230406761,
+    "1": 4.642277972932195
+   }
+  },
+  "2019_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.636631092403026,
+    "0": 3.050076876484665,
+    "1": 4.508891655895549
+   }
+  },
+  "2019_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 2.573103633859402,
+    "0": 4.492268353402302,
+    "1": 7.719683412271553
+   }
+  },
+  "2020_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.249527323829892,
+    "0": 3.3826789905027765,
+    "1": 5.084297412312991
+   }
+  },
+  "2020_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 2.9338924337152044,
+    "0": 5.122726815450049,
+    "1": 8.44592767599136
+   }
+  },
+  "2021_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.1849476094852056,
+    "0": 3.231347794758805,
+    "1": 4.819902077701595
+   }
+  },
+  "2021_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 3.003277879264255,
+    "0": 4.578391198352311,
+    "1": 7.65234165348253
+   }
+  },
+  "2022_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.1992449245586676,
+    "0": 3.1528992688026474,
+    "1": 4.677475974038074
+   }
+  },
+  "2022_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 2.9627036237875672,
+    "0": 4.484749067304889,
+    "1": 7.4852249387661445
+   }
+  },
+  "2023_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.135174449403374,
+    "0": 3.147665143755803,
+    "1": 4.680656549014156
+   }
+  },
+  "2023_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 2.8701060770145093,
+    "0": 4.252586939858106,
+    "1": 7.147077901403389
+   }
+  },
+  "2024_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.2645961873597193,
+    "0": 3.2034445616830007,
+    "1": 4.657422935517751
+   }
+  },
+  "2024_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 2.949288845179529,
+    "0": 4.321844424273169,
+    "1": 7.214102346464564
+   }
+  },
+  "2025_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.4245431722905546,
+    "0": 3.1680404011794656,
+    "1": 4.4649974120439
+   }
+  },
+  "2025_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 2.9621245642441467,
+    "0": 4.055925438959666,
+    "1": 6.7141423046460496
+   }
+  },
+  "2026_std_DecFeb": {
+   "best": -1,
+   "mae": {
+    "-1": 2.2483262559895842,
+    "0": 3.0988798678490883,
+    "1": 4.439392346811983
+   }
+  },
+  "2026_dst_JunAug": {
+   "best": -1,
+   "mae": {
+    "-1": 3.124911388972032,
+    "0": 4.082670681736455,
+    "1": 6.510915470423501
+   }
+  }
+ },
+ "season_post2019_best_minus1": 15,
+ "season_post2019_n": 15,
+ "rows": [
+  {
+   "year": 2022,
+   "date": "2022-07-20",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 148528.0
+  },
+  {
+   "year": 2022,
+   "date": "2022-07-21",
+   "official_he": 17,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 146286.0
+  },
+  {
+   "year": 2022,
+   "date": "2022-07-22",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 145401.0
+  },
+  {
+   "year": 2022,
+   "date": "2022-08-08",
+   "official_he": 16,
+   "eia_demand_peak_he": 16,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 144212.0
+  },
+  {
+   "year": 2022,
+   "date": "2022-08-03",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 143305.0
+  },
+  {
+   "year": 2023,
+   "date": "2023-07-27",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 147605.0
+  },
+  {
+   "year": 2023,
+   "date": "2023-09-05",
+   "official_he": 17,
+   "eia_demand_peak_he": 17,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 146836.0
+  },
+  {
+   "year": 2023,
+   "date": "2023-07-28",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 145275.0
+  },
+  {
+   "year": 2023,
+   "date": "2023-09-06",
+   "official_he": 17,
+   "eia_demand_peak_he": 17,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 141874.0
+  },
+  {
+   "year": 2023,
+   "date": "2023-07-05",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 138886.0
+  },
+  {
+   "year": 2024,
+   "date": "2024-07-16",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 153121.0
+  },
+  {
+   "year": 2024,
+   "date": "2024-07-15",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 152137.0
+  },
+  {
+   "year": 2024,
+   "date": "2024-08-01",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 149274.0
+  },
+  {
+   "year": 2024,
+   "date": "2024-06-21",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 147976.0
+  },
+  {
+   "year": 2024,
+   "date": "2024-08-28",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 16,
+   "forecast_realigned_peak_he": 17,
+   "demand_at_official": 148328.0
+  },
+  {
+   "year": 2025,
+   "date": "2025-06-23",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 160560.0
+  },
+  {
+   "year": 2025,
+   "date": "2025-06-24",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 15,
+   "forecast_realigned_peak_he": 16,
+   "demand_at_official": 158646.0
+  },
+  {
+   "year": 2025,
+   "date": "2025-07-29",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 154380.0
+  },
+  {
+   "year": 2025,
+   "date": "2025-06-25",
+   "official_he": 15,
+   "eia_demand_peak_he": 15,
+   "forecast_peak_he": 15,
+   "forecast_realigned_peak_he": 16,
+   "demand_at_official": 153156.0
+  },
+  {
+   "year": 2025,
+   "date": "2025-07-28",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 152155.0
+  },
+  {
+   "year": 2026,
+   "date": "2026-07-02",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 162648.0
+  },
+  {
+   "year": 2026,
+   "date": "2026-07-01",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 161965.0
+  },
+  {
+   "year": 2026,
+   "date": "2026-07-15",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 159046.0
+  },
+  {
+   "year": 2026,
+   "date": "2026-07-16",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 154213.0
+  },
+  {
+   "year": 2026,
+   "date": "2026-09-01",
+   "official_he": 18,
+   "eia_demand_peak_he": 18,
+   "forecast_peak_he": 17,
+   "forecast_realigned_peak_he": 18,
+   "demand_at_official": 152547.0
+  }
+ ]
+}

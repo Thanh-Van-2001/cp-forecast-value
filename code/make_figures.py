@@ -45,8 +45,8 @@ plt.close(fig)
 # Figure 2: same-MAE error types under three ways of using the forecast
 pol = [("forecast", "Own-scale threshold\n(primary)", "#0072B2"), ("actual", "Threshold from\nactual peaks", "#E69F00"),
        ("exact", "Exactly B best days\n(ex post)", "#009E73")]
-types = ["S_bias", "S_under", "S_shrink", "S_noise", "S_ar1"]
-fig, ax = plt.subplots(figsize=(6.3, 3.0))
+types = ["S_bias", "S_under", "S_shrink", "F_ISO", "S_noise", "S_ar1"]
+fig, ax = plt.subplots(figsize=(6.3, 3.3))
 y = np.arange(len(types))
 for i, (sc, lab, col) in enumerate(pol):
     q = P[(P.scale == sc) & (P.mult == 5) & (P.window == 3)]
@@ -55,9 +55,9 @@ for i, (sc, lab, col) in enumerate(pol):
                marker=["o", "s", "^"][i], edgecolor="white", linewidth=0.6)
 for k in range(len(types)):
     ax.axhline(k, color="#f0f0f0", lw=6, zorder=0)
-ax.set_yticks(y, [LAB[t] for t in types])
+ax.set_yticks(y, [LAB[t] if t != "F_ISO" else "ISO day-ahead (its own error)" for t in types])
 ax.invert_yaxis()
-ax.set_xlabel("Coincident peaks captured (%), all errors with the same MAE as the ISO forecast")
+ax.set_xlabel("Coincident peaks caught (%); every row has the ISO forecast's MAE")
 ax.set_xlim(40, 102)
 ax.grid(axis="x", color="#eeeeee", lw=0.6)
 ax.legend(frameon=False, fontsize=7, loc="lower left", ncol=1)

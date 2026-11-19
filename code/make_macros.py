@@ -175,6 +175,26 @@ M["lagOtherN"] = str(sum(len(LC[b]) for b in ("ERCO", "NYIS", "ISNE")))
 ps = [v["summer"]["mae"]["0"] for y, v in pj.items() if int(y) >= 2019 and "summer" in v]
 ps1 = [v["summer"]["mae"]["-1"] for y, v in pj.items() if int(y) >= 2019 and "summer" in v]
 M["lagPjmSummerZero"], M["lagPjmSummerShift"] = f"{np.mean(ps):.1f}", f"{np.mean(ps1):.1f}"
+# amendment 5, after internal review: official PJM 5CP hours and the offset by season
+OC = json.load(open("out_realign/pjm_official_check.json"))
+M["offN"] = str(OC["n"])
+M["offDemAt"], M["offDemWithin"] = str(OC["demand_peak_at_official_hour"]), str(OC["demand_peak_within_1h"])
+M["offFcAt"], M["offFcRaAt"] = str(OC["forecast_peak_at_official_hour"]), str(OC["forecast_realigned_peak_at_official_hour"])
+M["offFcLag"] = f"{OC['forecast_peak_minus_official_mean']:.1f}"
+M["offFcRaLag"] = f"{OC['forecast_realigned_peak_minus_official_mean']:.1f}"
+M["offCpDays"] = str(OC["cp_days_matching_total"])
+M["seasonBest"], M["seasonN"] = str(OC["season_post2019_best_minus1"]), str(OC["season_post2019_n"])
+# where the ISO forecast sits between random noise and order-keeping errors (ex post exactly-B rule)
+for od, pre in (("out", ""), ("out_realign", "ra")):
+    ex = json.load(open(f"{od}/secondary.json"))["exact_m5_w3"]["capture"]
+    pos = (ex["F_ISO"] - ex["S_noise"]) / (ex["S_bias"] - ex["S_noise"])
+    M[pre + ("isoPosExact" if not pre else "IsoPosExact")] = f"{100 * pos:.0f}"
+M["formGapExact"] = f"{100 * (max(json.load(open('out/secondary.json'))['exact_m5_w3']['capture'][k] for k in ('S_bias', 'S_under', 'S_shrink')) - min(json.load(open('out/secondary.json'))['exact_m5_w3']['capture'][k] for k in ('S_noise', 'S_ar1'))):.0f}"
+# illustration: PJM 2026/27 capacity price (PJM BRA report) and a 10-MW curtailment missing one of five CPs
+BRA, MW, NCP5 = 329.17, 10.0, 5
+M["braPrice"] = f"{BRA:.2f}"
+M["illusMw"], M["illusPlc"] = f"{MW:.0f}", f"{MW / NCP5:.0f}"
+M["illusCost"] = f"{round(MW / NCP5 * BRA * 365, -4):,.0f}"
 RA = json.load(open("out_realign/results.json"))["hypotheses"]
 M["raHThreePexact"] = f"{RA['H3']['p_one_sided']:.3f}"
 

@@ -1,5 +1,5 @@
-Accuracy separates poor from good peak forecasts but does not rank good ones
-At equal error and alerts, order-keeping errors catch nearly all coincident peaks
-Random errors of the same size miss about one coincident peak in five
-PJM's EIA-930 forecast has been stamped one hour early since February 2019
-Realigned, the operator forecast catches 39 instead of 31 of 40 PJM peak hours
+Accuracy is necessary but not sufficient for catching coincident peaks
+At the operator's error, error shape moves peaks caught by up to 21 points
+Order-keeping errors catch nearly all peaks; random errors miss one in five
+Free operator forecasts catch at least as many peaks as a weather-free model
+A timing error in public data hides 7 of 40 PJM peak hours the operator catches
