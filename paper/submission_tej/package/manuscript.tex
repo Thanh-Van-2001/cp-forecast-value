@@ -991,21 +991,6 @@ CP hours were identified from hourly EIA-930 demand; for PJM they matched the of
 
 A more accurate day-ahead load forecast catches more coincident peaks, but accuracy is not sufficient. At the operators' level of error, the shape of the error decides whether a forecast loses almost none or a fifth of the peaks, and forecasts that compress peaks need thresholds set on their own scale. The operators' free forecasts are a strong baseline. In the public EIA-930 data, PJM's forecast has been stamped one hour early relative to its demand since February 2019, which makes it look worse at finding the peak hour than it is. Peak forecasts should be judged by backtested capture at a stated number of alerts, on data whose alignment has been checked.
 
-\section*{Data availability}
-EIA-930 data are public \citep{eia930}, and PJM's 5CP reports are published annually \citep{pjm5cp}. The analysis plan with its commit history and amendment log, the code, the download script with file hashes, the official 5CP files with their hashes, and the results of every run are available at \url{\repoURL}.
-
-\section*{CRediT authorship contribution statement}
-\textbf{Thanh Van Nguyen:} Conceptualization, Methodology, Software, Formal analysis, Data curation, Writing -- original draft, Writing -- review \& editing.
-
-\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
-During the preparation of this work the author used Claude Opus 5.5 (Anthropic; used in November 2026 through Claude Code) to help write and test the analysis code, search the literature and check every reference against Crossref and arXiv, obtain a referee-style critique of the draft, and draft and edit the text; its use in the research process is also described in Section 2.4. The author chose the research question, approved the analysis plan and each amendment, and checked the results. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
-
-\section*{Declaration of competing interest}
-The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
-
-\section*{Funding}
-This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
-
 \appendix
 
 \section{Tests, budgets and robustness}
@@ -1041,6 +1026,21 @@ Window 5 h & \res{tauWfive} & \res{tailWfive} & \res{capBiasWfive} & \res{capUnd
 \label{app:amend}
 
 The plan was committed after one data file had been downloaded to check access. Amendment~1 fixed a coding error found in a pipeline check on ERCOT 2018--2019. Amendment~2, after that check and before the full run, normalised thresholds by trailing mean load, because load growth made the calibrated rules issue far more alerts than budgeted, and added the exactly-budgeted rule; the check's capture results had been seen. Amendment~3, after the full run, screened recording errors, prompted by a 2.1-billion-MW value in PJM's 2021 data. Amendment~4, after an internal referee-style review, loosened that screen (its first version also removed genuine heat-wave peaks), implemented the pre-specified exclusion of market-years with incomplete CP days, corrected the holiday calendar, made the synthetic forecasts' error exactly equal to the ISO forecast's, and added the exploratory analyses marked as such; it changed H3 from supported to not supported (H1 $\tau$ before any screening: \res{vOneTau}). Amendment~5, logged before its results were seen, reran the whole analysis with PJM's forecast delayed by one hour from February 2019 and added the alignment check; after a further internal review it added the comparison with PJM's official 5CP hours and the seasonal check (Section~\ref{sec:offset}). The results on the data as published were kept and are reported throughout.
+
+\section*{Data availability}
+EIA-930 data are public \citep{eia930}, and PJM's 5CP reports are published annually \citep{pjm5cp}. The analysis plan with its commit history and amendment log, the code, the download script with file hashes, the official 5CP files with their hashes, and the results of every run are available at \url{\repoURL}.
+
+\section*{CRediT authorship contribution statement}
+\textbf{Thanh Van Nguyen:} Conceptualization, Methodology, Software, Formal analysis, Data curation, Writing -- original draft, Writing -- review \& editing.
+
+\section*{Declaration of competing interest}
+The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+During the preparation of this work the author used Claude Opus 5.5 (Anthropic; used in November 2026 through Claude Code) to help write and test the analysis code, search the literature and check every reference against Crossref and arXiv, obtain a referee-style critique of the draft, and draft and edit the text; its use in the research process is also described in Section 2.4. The author chose the research question, approved the analysis plan and each amendment, and checked the results. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
 
 \begin{thebibliography}{25}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi

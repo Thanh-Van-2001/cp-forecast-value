@@ -11,3 +11,5 @@ paper/submission/*.aux
 paper/submission/*.log
 paper/submission/*.out
 data_pjm5cp/*.pdf
+paper/submission_tej/package/*.aux
+paper/submission_tej/package/*.log
