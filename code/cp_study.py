@@ -16,7 +16,12 @@ from scipy import stats
 
 ROOT = sys.argv[1]
 CHECK = "--check" in sys.argv
-OUT = os.path.join(ROOT, "out_check" if CHECK else "out")
+# amendment 5: PJM's EIA-930 forecast is stamped one hour early relative to its
+# demand in every month from February 2019 (found in a separate study of EIA-930
+# recording errors); --realign-pjm delays it by one hour from that month on.
+REALIGN = "--realign-pjm" in sys.argv
+PJM_SHIFT_FROM = pd.Timestamp("2019-02-01")
+OUT = os.path.join(ROOT, "out_check" if CHECK else ("out_realign" if REALIGN else "out"))
 os.makedirs(OUT, exist_ok=True)
 BAS = ["ERCO"] if CHECK else ["ERCO", "PJM", "NYIS", "ISNE"]
 NCP = {"ERCO": 4, "PJM": 5, "NYIS": 1, "ISNE": 1}
@@ -63,6 +68,10 @@ def hourly_frame(d, ba):
     days = pd.date_range(g["date"].min(), g["date"].max(), freq="D")
     idx = pd.MultiIndex.from_product([days, range(1, 25)], names=["date", "hour"])
     piv = piv.reindex(idx)
+    if REALIGN and ba == "PJM":
+        # amendment 5: forecast row one hour earlier is paired with demand from Feb 2019
+        late = piv.index.get_level_values("date") >= PJM_SHIFT_FROM
+        piv.loc[late, "forecast"] = piv["forecast"].shift(1)[late].values
     # amendment 3, revised by amendment 4: screen only gross recording errors
     # (EIA-930 spikes, zeros, an integer-overflow sentinel). A value is set
     # missing if it is <= 0 or lies outside [0.3, 2.0] x the centred 168-hour

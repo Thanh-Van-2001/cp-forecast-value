@@ -190,3 +190,21 @@ Exploratory additions (no new hypotheses):
   bootstrap, per-market H1 for ERCOT and PJM, out-of-sample (previous
   season) tail-rank score and MAE, and exact binomial intervals for H4.
 The unscreened run (out/v1) and the amendment-3 run (out/v2) are kept.
+
+### Amendment 5 (2026-11-19, after an editorial desk rejection; logged before the rerun's results were seen)
+
+A separate pre-specified study of EIA-930 recording errors (repository
+eia930-quality, exploratory offset analysis) found that PJM's Demand Forecast
+column is stamped one hour early relative to its Demand column in every
+month from February 2019 (92 of 92 months; MAPE 3.6% unshifted vs 2.4%
+when the forecast row one hour earlier is paired with demand, the same as
+PJM's 2016-2018 level). No offset was found for ERCO, NYIS or ISNE.
+
+Change: a corrected-data analysis (`--realign-pjm`, results in out_realign/)
+delays PJM's forecast by one hour from 2019-02-01 before the screen; every
+other step is unchanged (same seed, policies, tests). The pre-specified
+results in out/ are kept and reported alongside. Because the offset changes
+F_ISO's MAE, it also changes the MAE matched by the synthetic forecasts and
+F_ISObc/F_mix for PJM. Both sets of H1-H4 outcomes are reported; neither is
+chosen after seeing which is more favourable. The corrected-data analysis is
+labelled as such, not as pre-specified.

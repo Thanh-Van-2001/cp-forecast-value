@@ -1,17 +1,20 @@
 """Secondary analyses (PLAN: secondary and robustness; amendment 2), from
 out/panel.csv only. Writes out/secondary.json.
-Run from the repository root: python -I code/analyze2.py"""
+Run from the repository root: python -I code/analyze2.py [outdir]
+(amendment 5: outdir=out_realign for the PJM-realigned run)"""
 import json
+import os
 import sys
 
 import numpy as np
 import pandas as pd
 
+OD = sys.argv[1] if len(sys.argv) > 1 else "out"
 sys.argv = ["cp_study.py", "."]
 sys.path.insert(0, "code")
 import cp_study as C  # noqa: E402
 
-P = pd.read_csv("out/panel.csv")
+P = pd.read_csv(os.path.join(OD, "panel.csv"))
 out = {}
 for scale in ("forecast", "actual", "exact", "nomax"):
     for mult in (3, 5, 8):
@@ -98,7 +101,7 @@ for sc in ("forecast", "exact", "nomax", "actual"):
                                   for ba, g in q.groupby("ba")}
 out["years"] = sorted(int(y) for y in P.year.unique())
 out["n_market_years"] = int(prim.groupby(["ba", "year"]).ngroups)
-json.dump(out, open("out/secondary.json", "w"), indent=1, default=float)
+json.dump(out, open(os.path.join(OD, "secondary.json"), "w"), indent=1, default=float)
 print("h1 subsets", out["h1_subsets"], "year-cluster", out["h1_year_cluster_ci"], out["h3_year_cluster_ci"])
 print("per market", out["per_market_tau"], "oos", out["oos_tau"])
 print("h4", out["h4_exact"])
